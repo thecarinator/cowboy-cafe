@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// Class representing the Rustler's ribs entree
+    /// </summary>
     public class RustlersRibs
     {
         public double Price

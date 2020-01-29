@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// Class representing the Dakota Double burger entree
+    /// </summary>
     public class DakotaDoubleBurger
     {
         private bool tomato = true;
