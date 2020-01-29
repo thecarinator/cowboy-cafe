@@ -16,7 +16,7 @@ namespace CowboyCafe.Data
 
         private bool pickles = true;
 
-        public bool Pickles
+        public bool Pickle
         {
             get { return pickles; }
             set { pickles = value; }
@@ -37,7 +37,7 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
                 if (!bread) instructions.Add("hold bread");
-                if (!pickles) instructions.Add("hold pickles");
+                if (!pickles) instructions.Add("hold pickle");
                 return instructions;
             }
         }

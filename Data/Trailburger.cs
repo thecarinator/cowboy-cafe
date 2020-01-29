@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class Trailburger
+    public class TrailBurger
     {
+        private bool bun = true;
+        public bool Bun
+        {
+            get { return bun; }
+            set { bun = value; }
+        }
         private bool ketchup = true;
 
         public bool Ketchup
@@ -23,7 +29,7 @@ namespace CowboyCafe.Data
         }
         private bool pickles = true;
 
-        public bool Pickles
+        public bool Pickle
         {
             get { return pickles; }
             set { pickles = value; }
@@ -51,9 +57,10 @@ namespace CowboyCafe.Data
             get
             {
                 var instructions = new List<string>();
+                if (!bun) instructions.Add("hold bun");
                 if (!ketchup) instructions.Add("hold ketchup");
                 if (!mustard) instructions.Add("hold mustard");
-                if (!pickles) instructions.Add("hold pickles");
+                if (!pickles) instructions.Add("hold pickle");
                 if (!cheese) instructions.Add("hold cheese");
                 return instructions;
             }
