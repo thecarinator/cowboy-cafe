@@ -10,7 +10,9 @@ namespace CowboyCafe.Data
     public class PecosPulledPork
     {
         private bool bread = true;
-
+        /// <summary>
+        /// If the pulled pork has bread
+        /// </summary>
         public bool Bread
         {
             get { return bread; }
@@ -18,23 +20,34 @@ namespace CowboyCafe.Data
         }
 
         private bool pickles = true;
-
+        /// <summary>
+        /// If the pulled pork has pickles
+        /// </summary>
         public bool Pickle
         {
             get { return pickles; }
             set { pickles = value; }
         }
 
+        /// <summary>
+        /// The price for the Pecos Pulled Pork
+        /// </summary>
         public double Price
         {
             get { return 5.88; }
         }
 
+        /// <summary>
+        /// The calories for the Pecos Pulled Pork
+        /// </summary>
         public uint Calories
         {
             get { return 528; }
         }
 
+        /// <summary>
+        /// Special instructions for the Pecos Pulled Pork
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get

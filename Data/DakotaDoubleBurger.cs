@@ -9,69 +9,105 @@ namespace CowboyCafe.Data
     /// </summary>
     public class DakotaDoubleBurger
     {
-        private bool tomato = true;
-        private bool lettuce = true;
-        private bool mayo = true;
         private bool bun = true;
+        /// <summary>
+        /// If the double burger has buns
+        /// </summary>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
+
+        private bool tomato = true;
+        /// <summary>
+        /// If the double burger has tomatoes
+        /// </summary>
         public bool Tomato
         {
             get { return tomato; }
             set { tomato = value; }
         }
+
+        private bool lettuce = true;
+        /// <summary>
+        /// If the double burger has lettuce 
+        /// </summary>
         public bool Lettuce
         {
             get { return lettuce; }
             set { lettuce = value; }
         }
+
+        private bool mayo = true;
+        /// <summary>
+        /// If the double burger has mayo
+        /// </summary>
         public bool Mayo
         {
             get { return mayo; }
             set { mayo = value; }
         }
-        private bool ketchup = true;
 
+        private bool ketchup = true;
+        /// <summary>
+        /// If the double burger has ketchup
+        /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
-        private bool mustard = true;
 
+        private bool mustard = true;
+        /// <summary>
+        /// If the double burger has mustard
+        /// </summary>
         public bool Mustard
         {
             get { return mustard; }
             set { mustard = value; }
         }
+
         private bool pickles = true;
+        /// <summary>
+        /// If the double burger has pickles
+        /// </summary>
         public bool Pickle
         {
             get { return pickles; }
             set { pickles = value; }
         }
-        private bool cheese = true;
 
+        private bool cheese = true;
+        /// <summary>
+        /// If the double burger has cheese
+        /// </summary>
         public bool Cheese
         {
             get { return cheese; }
             set { cheese = value; }
         }
 
-
+        /// <summary>
+        /// The price for the double burger
+        /// </summary>
         public double Price
         {
             get { return 5.20; }
         }
 
+        /// <summary>
+        /// The calories for the double burger
+        /// </summary>
         public uint Calories
         {
             get { return 464; }
         }
 
+        /// <summary>
+        /// Special instructions for the double burger
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
