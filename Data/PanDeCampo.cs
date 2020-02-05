@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class representing the Pan de Campo side
+    /// </summary>
     public class PanDeCampo: Side
     {
+        /// <summary>
+        /// the price of the pan de campo
+        /// </summary>
         public override double Price
         {
             get
@@ -23,5 +29,27 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// the calories of the pan de campo
+        /// </summary>
+        public override uint Calories
+        {
+            get
+            {
+                switch (Size)
+                {
+                    case Size.Small:
+                        return 227;
+                    case Size.Medium:
+                        return 269;
+                    case Size.Large:
+                        return 367;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
     }
+
 }
