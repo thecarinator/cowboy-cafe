@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: ChiliCheeseFries.cs
+ * Purpose: Class for Chili cheese fries
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

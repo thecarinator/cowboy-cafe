@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author:
+ * Edited by: Cari Miller
+ * Class: AngryChicken.cs
+ * Purpose: Class for Angry Chicken
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

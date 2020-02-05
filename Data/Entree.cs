@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: Entree.cs
+ * Purpose: Base class for entree
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

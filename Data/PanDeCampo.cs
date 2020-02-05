@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: PanDeCampo.cs
+ * Purpose: Class for Pan de Campo
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

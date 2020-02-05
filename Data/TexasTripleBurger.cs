@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author:
+ * Edited by: Cari Miller
+ * Class: TexasTripleBurger.cs
+ * Purpose: Class for Texas Triple Burger
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: 
+ * Edited by: Cari Miller
+ * Class: CowpokeChili.cs
+ * Purpose: Class for Cowpoke chili
+ */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

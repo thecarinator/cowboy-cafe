@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author:
+ * Edited By: Cari Miller
+ * Class: RustlersRibs.cs
+ * Purpose: class for Rustler's Ribs
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

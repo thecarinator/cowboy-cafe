@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CornDodgers
+ * Purpose: Class for the corn dodgers
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author:
+ * Edited by: Cari Miller
+ * Class: Trailburger.cs
+ * Purpose: Class for Trailburger
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

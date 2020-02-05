@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Author: 
+ * Edited by: Cari Miller
+ * Class: Size.cs
+ * Purpose: Enum
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

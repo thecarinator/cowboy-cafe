@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author:
+ * Edited by: Cari Miller
+ * Class: DakotaDoubleBurger.cs
+ * Purpose: Class for Dakota Double Burger
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
