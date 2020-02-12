@@ -1,5 +1,4 @@
-﻿/* Author:
- * Edited by: Cari Miller
+﻿/* Author: Cari Miller
  * Class: DakotaDoubleBurger.cs
  * Purpose: Class for Dakota Double Burger
  */

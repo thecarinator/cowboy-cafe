@@ -1,5 +1,4 @@
-﻿/* Author:
- * Edited By: Cari Miller
+﻿/* Author: Cari Miller
  * Class: PecosPulledPork.cs
  * Purpose: class for Pecos Pulled Pork
  */

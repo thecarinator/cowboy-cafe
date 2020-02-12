@@ -1,5 +1,4 @@
-﻿/* Author:
- * Edited by: Cari Miller
+﻿/* Author: Cari Miller
  * Class: AngryChicken.cs
  * Purpose: Class for Angry Chicken
  */

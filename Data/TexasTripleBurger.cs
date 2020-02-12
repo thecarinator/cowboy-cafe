@@ -1,5 +1,4 @@
-﻿/* Author:
- * Edited by: Cari Miller
+﻿/* Author: Cari Miller
  * Class: TexasTripleBurger.cs
  * Purpose: Class for Texas Triple Burger
  */

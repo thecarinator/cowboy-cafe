@@ -1,5 +1,4 @@
-﻿/* Author: 
- * Edited by: Cari Miller
+﻿/* Author: Cari Miller
  * Class: CowpokeChili.cs
  * Purpose: Class for Cowpoke chili
  */

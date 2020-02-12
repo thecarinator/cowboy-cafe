@@ -1,5 +1,4 @@
-﻿/* Author:
- * Edited By: Cari Miller
+﻿/* Author: Cari Miller
  * Class: RustlersRibs.cs
  * Purpose: class for Rustler's Ribs
  */

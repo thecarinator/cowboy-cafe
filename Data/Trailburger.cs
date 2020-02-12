@@ -1,5 +1,4 @@
-﻿/* Author:
- * Edited by: Cari Miller
+﻿/* Author: Cari Miller
  * Class: Trailburger.cs
  * Purpose: Class for Trailburger
  */
