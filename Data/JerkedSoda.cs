@@ -1,20 +1,36 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: JerkedSoda.cs
+ * Purpose: Class for Jerked Soda
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// Class representing the drink jerked soda
+    /// </summary>
     public class JerkedSoda : Drink
-
     {
+        /// <summary>
+        /// Flavor of soda
+        /// </summary>
         public SodaFlavor Flavor { get; set; }
+
         private bool ice = true;
+        /// <summary>
+        /// If the soda has ice
+        /// </summary>
         public override bool Ice
         {
             get { return ice; }
             set { ice = value; }
         }
 
+        /// <summary>
+        /// Special instructions for the soda
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get
@@ -25,6 +41,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Price for the soda
+        /// </summary>
         public override double Price
         {
             get
@@ -43,6 +62,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Calories of the soda
+        /// </summary>
         public override uint Calories
         {
             get
