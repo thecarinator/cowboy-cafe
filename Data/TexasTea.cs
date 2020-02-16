@@ -12,7 +12,7 @@ namespace CowboyCafe.Data
             get { return sweet; }
             set { sweet = value; }
         }
-        private bool Lemon { get; set; }
+        public bool Lemon { get; set; }
         private bool ice = true;
         public override bool Ice
         {
