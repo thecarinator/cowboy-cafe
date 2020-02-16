@@ -23,11 +23,17 @@ namespace CowboyCafe.Data
 
         public override List<string> SpecialInstructions
         {
-            get { }
+            get
+            {
+                var instr = new List<string>();
+                if (!ice) instr.Add("Hold Ice");
+                if (lemon) instr.Add("Add Lemon");
+                return instr;
+            }
         }
 
-        public override double Price => throw new NotImplementedException();
+        public override double Price { get { return 0.12; } }
 
-        public override uint Calories => throw new NotImplementedException();
+        public override uint Calories { get { return 0; } }
     }
 }
