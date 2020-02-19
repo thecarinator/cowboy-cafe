@@ -83,5 +83,30 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        public override string ToString()
+        {
+            string be = "";
+            if (Size == Size.Small)
+            {
+                be = "Small";
+            }
+            else if (Size == Size.Medium)
+            {
+                be = "Medium";
+            }
+            else
+            {
+                be = "Large";
+            }
+            if (Decaf)
+            {
+                return be + " Decaf Cowboy Coffee";
+            }
+            else
+            {
+                return be + " Cowboy Coffee";
+            }
+        }
     }
 }

@@ -37,7 +37,7 @@
             <TextBlock TextAlignment="Center">Side</TextBlock>
             <Button Name="AddBakedBeansButton">Baked Beans</Button>
             <Button Name="AddChiliCheeseFriesButton">Chili Chees Fries</Button>
-            <Button Name="CornDodgerButton">Corn Dodgers</Button>
+            <Button Name="AddCornDodgersButton">Corn Dodgers</Button>
             <Button Name ="AddPanDeCampoButton" >Pan de Campo</Button>
         </StackPanel>
         <StackPanel Grid.Column="2">
@@ -48,7 +48,7 @@
             <Button Name ="AddWaterButton">Water</Button>
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.ColumnSpan="2">
-            <ListBox/>
+            <ListView Name="OrderList"/>
         </StackPanel>
     </Grid>
 </UserControl>

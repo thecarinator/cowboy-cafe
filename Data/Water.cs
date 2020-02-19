@@ -56,5 +56,24 @@ namespace CowboyCafe.Data
         /// Calories of water
         /// </summary>
         public override uint Calories { get { return 0; } }
+
+
+        public override string ToString()
+        {
+            string be = "";
+            if (Size == Size.Small)
+            {
+                be = "Small";
+            }
+            else if (Size == Size.Medium)
+            {
+                be = "Medium";
+            }
+            else
+            {
+                be = "Large";
+            }
+            return be + " Water";
+        }
     }
 }
