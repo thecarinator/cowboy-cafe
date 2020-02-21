@@ -110,6 +110,35 @@ namespace CowboyCafe.Data
                     }
                 }
             }
+
+          
+        }
+
+        public override string ToString()
+        {
+            string be = "";
+            string b = "";
+            if (Size == Size.Small)
+            {
+                be = "Small";
+            }
+            else if (Size == Size.Medium)
+            {
+                be = "Medium";
+            }
+            else
+            {
+                be = "Large";
+            }
+            if (Sweet)
+            {
+                b = "Sweet";
+            }
+            else
+            {
+                b = "Plain";
+            }
+            return be + " Texas " + b + " Tea";
         }
     }
 }
