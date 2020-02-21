@@ -57,7 +57,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public override uint Calories { get { return 0; } }
 
-
+        /// <summary>
+        /// gets water as string
+        /// </summary>
+        /// <returns>returns string</returns>
         public override string ToString()
         {
             string be = "";

@@ -83,7 +83,11 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        
+        /// <summary>
+        /// gets cowboy coffee as string
+        /// </summary>
+        /// <returns>returns string </returns>
         public override string ToString()
         {
             string be = "";

@@ -56,6 +56,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// gets baked beans as string
+        /// </summary>
+        /// <returns> returns string </returns>
         public override string ToString()
         {
             string be = "";

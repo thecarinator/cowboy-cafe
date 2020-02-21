@@ -83,6 +83,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// gets jerked soda as string 
+        /// </summary>
+        /// <returns> returns string</returns>
         public override string ToString()
         {
             string be = "";

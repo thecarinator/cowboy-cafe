@@ -1,4 +1,5 @@
-﻿/* Author: Cari Miller
+﻿/* Author: 
+ * Edited by: Cari Miller
  * Class: CowpokeChili.cs
  * Purpose: Class for Cowpoke chili
  */
@@ -92,6 +93,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// gets cowpoke chili as string
+        /// </summary>
+        /// <returns> returns string </returns>
         public override string ToString()
         {
             return "Cowpoke Chili";

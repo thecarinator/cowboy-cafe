@@ -114,6 +114,10 @@ namespace CowboyCafe.Data
           
         }
 
+        /// <summary>
+        /// gets Texas tea as string
+        /// </summary>
+        /// <returns> returns string </returns>
         public override string ToString()
         {
             string be = "";

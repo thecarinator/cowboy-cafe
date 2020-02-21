@@ -39,91 +39,151 @@ namespace PointOfSale
             AddWaterButton.Click += OnAddWaterButton_Clicked;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddCowpokeChiliButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new CowpokeChili());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddAngryChickenButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new AngryChicken());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddDakotaDoubleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new DakotaDoubleBurger());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddPecosPulledPorkButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new PecosPulledPork());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddRustlersRibsButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new RustlersRibs());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddTexasTripleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new TexasTripleBurger());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddTrailBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new TrailBurger());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddBakedBeansButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new BakedBeans());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddChiliCheeseFriesButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new ChiliCheeseFries());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddCornDodgersButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new CornDodgers());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddPanDeCampoButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new PanDeCampo());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddCowboyCoffeeButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new CowboyCoffee());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddJerkedSodaButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new JerkedSoda());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddTexasTeaButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new TexasTea());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnAddWaterButton_Clicked(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(new Water());
