@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: OrderControl.xaml.cs
+ * Purpose:
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -40,7 +45,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Cowpoke Chili Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -50,7 +55,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Angry Chicken Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -60,7 +65,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Dakota Double Burger Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -70,7 +75,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Pecos Pulled Pork Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -80,7 +85,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Rustler's Ribs Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -90,7 +95,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Texas Triple Burger Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -100,7 +105,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Trail Burger Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -110,7 +115,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Baked Beans Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,7 +125,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Chili Cheese Fries Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -130,7 +135,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Corn Dodgers Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -140,7 +145,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Pan de Campo Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -150,7 +155,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Cowboy Coffee Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -160,7 +165,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Jerked Soda Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -170,7 +175,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Texas Tea Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -180,7 +185,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Listener for the click event of the Water Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
