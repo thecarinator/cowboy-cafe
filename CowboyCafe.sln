@@ -12,11 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{6BEEE201-5A08-4B57-99EA-8C2C311AA822}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Desktop\Blank Diagram.pdf = ..\..\..\..\Desktop\Blank Diagram.pdf
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{95DAD5E8-4171-4EDA-B0B9-6FD5360D80F5}"
 EndProject
 Global
