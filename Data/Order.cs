@@ -10,7 +10,7 @@ namespace CowboyCafe.Data
         private uint lastOrderNumber;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private List<IOrderItem> items;
+        private List<IOrderItem> items = new List<IOrderItem>();
         public IEnumerable<IOrderItem> Items => items.ToArray();
         public double Subtotal { get; }
         public uint OrderNumber { get; }
