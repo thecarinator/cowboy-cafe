@@ -12,7 +12,9 @@
             <Setter Property ="Width" Value="200px"/>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid >
+        <local:MenuItemSelectionControl></local:MenuItemSelectionControl>
+        <local:OrderSummaryControl></local:OrderSummaryControl>
         <Button Name ="ItemSelectionButton" Margin="26,20,574,380"> Item Selection</Button>
         <Button Name ="CancelOrderButton" Margin="254,20,346,380">Cancel Order</Button>
         <Button Name ="CompleteOrderButton" Margin="489,20,111,380"> Complete Order</Button>

@@ -47,8 +47,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCowpokeChiliButton_Clicked(object sender, RoutedEventArgs e)
         {
-           
-            ds.OrderList.Items.Add(new CowpokeChili());
+            CowpokeChili c = new CowpokeChili();
+            ds.OrderList.Items.Add(c);
+            ds.TotalList.Items.Add(c.Price);
         }
 
         /// <summary>
@@ -58,7 +59,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddAngryChickenButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ds.OrderList.Items.Add(new AngryChicken());
+            AngryChicken a = new AngryChicken();
+            ds.OrderList.Items.Add(a);
         }
 
         /// <summary>

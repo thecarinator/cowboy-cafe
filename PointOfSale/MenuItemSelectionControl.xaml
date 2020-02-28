@@ -7,10 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Height" Value="50px"/>
-            <Setter Property ="Width" Value="200px"/>
-        </Style>
+        
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
