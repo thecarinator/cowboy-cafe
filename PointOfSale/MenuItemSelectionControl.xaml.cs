@@ -19,9 +19,11 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        private OrderSummaryControl ds;
         public MenuItemSelectionControl()
         {
             InitializeComponent();
+            ds = new OrderSummaryControl();
             AddCowpokeChiliButton.Click += OnAddCowpokeChiliButton_Clicked;
             AddAngryChickenButton.Click += OnAddAngryChickenButton_Clicked;
             AddDakotaDoubleBurgerButton.Click += OnAddDakotaDoubleBurgerButton_Clicked;
@@ -45,7 +47,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCowpokeChiliButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowpokeChili());
+           
+            ds.OrderList.Items.Add(new CowpokeChili());
         }
 
         /// <summary>
@@ -55,7 +58,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddAngryChickenButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new AngryChicken());
+            ds.OrderList.Items.Add(new AngryChicken());
         }
 
         /// <summary>
@@ -65,7 +68,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddDakotaDoubleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new DakotaDoubleBurger());
+           ds.OrderList.Items.Add(new DakotaDoubleBurger());
         }
 
         /// <summary>
@@ -75,7 +78,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddPecosPulledPorkButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new PecosPulledPork());
+            ds.OrderList.Items.Add(new PecosPulledPork());
         }
 
         /// <summary>
@@ -85,7 +88,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddRustlersRibsButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new RustlersRibs());
+            ds.OrderList.Items.Add(new RustlersRibs());
         }
 
         /// <summary>
@@ -95,7 +98,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddTexasTripleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TexasTripleBurger());
+            ds.OrderList.Items.Add(new TexasTripleBurger());
         }
 
         /// <summary>
@@ -105,7 +108,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddTrailBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TrailBurger());
+            ds.OrderList.Items.Add(new TrailBurger());
         }
 
         /// <summary>
@@ -115,7 +118,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddBakedBeansButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new BakedBeans());
+            ds.OrderList.Items.Add(new BakedBeans());
         }
 
         /// <summary>
@@ -125,7 +128,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddChiliCheeseFriesButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new ChiliCheeseFries());
+            ds.OrderList.Items.Add(new ChiliCheeseFries());
         }
 
         /// <summary>
@@ -135,7 +138,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCornDodgersButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CornDodgers());
+            ds.OrderList.Items.Add(new CornDodgers());
         }
 
         /// <summary>
@@ -145,7 +148,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddPanDeCampoButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new PanDeCampo());
+            ds.OrderList.Items.Add(new PanDeCampo());
         }
 
         /// <summary>
@@ -155,7 +158,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCowboyCoffeeButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowboyCoffee());
+            ds.OrderList.Items.Add(new CowboyCoffee());
         }
 
         /// <summary>
@@ -165,7 +168,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddJerkedSodaButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new JerkedSoda());
+            ds.OrderList.Items.Add(new JerkedSoda());
         }
 
         /// <summary>
@@ -175,7 +178,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddTexasTeaButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TexasTea());
+            ds.OrderList.Items.Add(new TexasTea());
         }
 
         /// <summary>
@@ -185,7 +188,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddWaterButton_Clicked(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new Water());
+            ds.OrderList.Items.Add(new Water());
         }
     }
 }
