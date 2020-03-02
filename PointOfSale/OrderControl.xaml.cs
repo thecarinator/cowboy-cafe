@@ -28,13 +28,24 @@ namespace PointOfSale
         {
             InitializeComponent();
             CancelOrderButton.Click += OnCancelOrderButton_Clicked;
+            CompleteOrderButton.Click += OnCompleteOrderButton_Clicked;
         }
 
+        /// <summary>
+        /// Cancels the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnCancelOrderButton_Clicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
         }
 
+        /// <summary>
+        /// Completes the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnCompleteOrderButton_Clicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();

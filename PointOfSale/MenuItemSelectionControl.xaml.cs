@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: MenuItemSelectionControl.xaml.cs
+ * Purpose:
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -49,7 +53,7 @@ namespace PointOfSale
         {
             CowpokeChili c = new CowpokeChili();
             ds.OrderList.Items.Add(c);
-            ds.TotalList.Items.Add(c.Price);
+            ds.TotalList.Items.Add("$"+c.Price);
         }
 
         /// <summary>
@@ -61,6 +65,7 @@ namespace PointOfSale
         {
             AngryChicken a = new AngryChicken();
             ds.OrderList.Items.Add(a);
+            ds.TotalList.Items.Add("$" + a.Price);
         }
 
         /// <summary>
@@ -70,7 +75,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddDakotaDoubleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
-           ds.OrderList.Items.Add(new DakotaDoubleBurger());
+            DakotaDoubleBurger d = new DakotaDoubleBurger();
+            ds.OrderList.Items.Add(d);
+            ds.TotalList.Items.Add("$" + d.Price);
         }
 
         /// <summary>
@@ -80,7 +87,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddPecosPulledPorkButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ds.OrderList.Items.Add(new PecosPulledPork());
+            PecosPulledPork p = new PecosPulledPork();
+            ds.OrderList.Items.Add(p);
+            ds.TotalList.Items.Add("$" + p.Price);
         }
 
         /// <summary>
@@ -90,7 +99,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddRustlersRibsButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ds.OrderList.Items.Add(new RustlersRibs());
+            RustlersRibs r = new RustlersRibs();
+            ds.OrderList.Items.Add(r);
+            ds.TotalList.Items.Add("$" + r.Price);
         }
 
         /// <summary>

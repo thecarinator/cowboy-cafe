@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" Height="491" Width="1041">
     <UserControl.Resources>
-        
+
     </UserControl.Resources>
     <Grid Margin="0,10,0,0" >
         <Grid.ColumnDefinitions>
@@ -14,9 +14,18 @@
             <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
         <local:MenuItemSelectionControl Margin="0,104,0,0" Grid.ColumnSpan="2"></local:MenuItemSelectionControl>
-        <local:OrderSummaryControl Margin="205,-26,-551,22" Grid.Column="1"></local:OrderSummaryControl>
-        <Button Name ="ItemSelectionButton" Margin="38,31,543,400">Item Selection</Button>
-        <Button Name ="CancelOrderButton" Margin="254,36,327,395">Cancel Order</Button>
-        <Button Name ="CompleteOrderButton" Margin="489,36,92,395">Complete Order</Button>
+        <local:OrderSummaryControl Margin="1012,23,-631,-27" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <local:OrderSummaryControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.21"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.676"/>
+                </TransformGroup>
+            </local:OrderSummaryControl.RenderTransform>
+        </local:OrderSummaryControl>
+        <Button Name ="ItemSelectionButton" Margin="75,31,741,400">Item Selection</Button>
+        <Button Name ="CancelOrderButton" Margin="307,31,532,400">Cancel Order</Button>
+        <Button Name ="CompleteOrderButton" Margin="520,31,295,400">Complete Order</Button>
     </Grid>
 </UserControl>

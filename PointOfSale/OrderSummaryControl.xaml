@@ -10,8 +10,20 @@
         
     </UserControl.Resources>
     <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="350"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <TextBox Text="{Binding Path=Subtotal, StringFormat=c}"/>
-        <ListView Name ="OrderList"></ListView>
-        <ListView Name="TotalList"></ListView>
+        <ListView Grid.Row ="1" Grid.Column="0" Name ="OrderList"></ListView>
+        <ListView Grid.Row ="1" Grid.Column="1" Name="TotalList"></ListView>
+        <TextBlock Grid.Row="2">Subtotal</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="2" Name ="Total"/>
+        <TextBlock>Order</TextBlock>
     </Grid>
 </UserControl>

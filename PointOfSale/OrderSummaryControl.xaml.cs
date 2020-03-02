@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: OrderSummaryControl.xaml.cs
+ * Purpose:
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
