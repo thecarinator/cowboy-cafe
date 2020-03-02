@@ -111,7 +111,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddTexasTripleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ds.OrderList.Items.Add(new TexasTripleBurger());
+            TexasTripleBurger t = new TexasTripleBurger();
+            ds.OrderList.Items.Add(t);
+            ds.TotalList.Items.Add("$" + t.Price);
         }
 
         /// <summary>
@@ -121,7 +123,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddTrailBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ds.OrderList.Items.Add(new TrailBurger());
+            TrailBurger tb = new TrailBurger();
+            ds.OrderList.Items.Add(tb);
+            ds.TotalList.Items.Add("$" + tb.Price);
         }
 
         /// <summary>
@@ -131,7 +135,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddBakedBeansButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ds.OrderList.Items.Add(new BakedBeans());
+            BakedBeans b = new BakedBeans();
+            ds.OrderList.Items.Add(b);
+            ds.TotalList.Items.Add("$" + b.Price);
         }
 
         /// <summary>
