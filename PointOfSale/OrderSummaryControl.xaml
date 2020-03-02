@@ -25,7 +25,7 @@
                 <DataTemplate>
                     <Grid>
                         <TextBlock Text="{Binding}"/>
-                        <TextBlock Text ="{Binding Path = Price}"/>
+                        <TextBlock Text ="{Binding Path = Price, StringFormat=c}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
