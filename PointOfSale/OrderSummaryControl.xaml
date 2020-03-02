@@ -19,8 +19,17 @@
             <RowDefinition Height="350"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Text="{Binding Path=Subtotal, StringFormat=c}"/>
-        <ListView Grid.Row ="1" Grid.Column="0" Name ="OrderList"></ListView>
+        <TextBlock Text="{Binding Path=Subtotal, StringFormat=c}"/>
+        <ListView ItemsSource ="{Binding Path=Items}" Grid.Row ="1" Grid.Column="0" Name ="OrderList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text ="{Binding Path = Price}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <ListView Grid.Row ="1" Grid.Column="1" Name="TotalList"></ListView>
         <TextBlock Grid.Row="2">Subtotal</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="2" Name ="Total"/>

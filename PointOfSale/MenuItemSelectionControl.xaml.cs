@@ -23,11 +23,10 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
-        private OrderSummaryControl ds;
         public MenuItemSelectionControl()
         {
             InitializeComponent();
-            ds = new OrderSummaryControl();
+            
             AddCowpokeChiliButton.Click += OnAddCowpokeChiliButton_Clicked;
             AddAngryChickenButton.Click += OnAddAngryChickenButton_Clicked;
             AddDakotaDoubleBurgerButton.Click += OnAddDakotaDoubleBurgerButton_Clicked;
@@ -52,8 +51,8 @@ namespace PointOfSale
         void OnAddCowpokeChiliButton_Clicked(object sender, RoutedEventArgs e)
         {
             CowpokeChili c = new CowpokeChili();
-            ds.OrderList.Items.Add(c);
-            ds.TotalList.Items.Add("$"+c.Price);
+            Items.Add(c);
+            TotalList.Items.Add("$"+c.Price);
         }
 
         /// <summary>
@@ -64,8 +63,8 @@ namespace PointOfSale
         void OnAddAngryChickenButton_Clicked(object sender, RoutedEventArgs e)
         {
             AngryChicken a = new AngryChicken();
-            ds.OrderList.Items.Add(a);
-            ds.TotalList.Items.Add("$" + a.Price);
+            OrderList.Items.Add(a);
+            TotalList.Items.Add("$" + a.Price);
         }
 
         /// <summary>
@@ -76,8 +75,8 @@ namespace PointOfSale
         void OnAddDakotaDoubleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             DakotaDoubleBurger d = new DakotaDoubleBurger();
-            ds.OrderList.Items.Add(d);
-            ds.TotalList.Items.Add("$" + d.Price);
+            OrderList.Items.Add(d);
+            TotalList.Items.Add("$" + d.Price);
         }
 
         /// <summary>

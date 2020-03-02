@@ -1,4 +1,7 @@
-﻿
+﻿/* Author: Cari Miller
+ * Class: IOrderItem.cs
+ * Purpose:
+ */
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +19,7 @@ namespace CowboyCafe.Data
         double Price { get; }
 
         /// <summary>
-        /// The soecial instructions for this order item
+        /// The special instructions for this order item
         /// </summary>
         List<string> SpecialInstructions { get; }
     }
