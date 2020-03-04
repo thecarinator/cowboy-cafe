@@ -4,19 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
-             mc:Ignorable="d" Height="491" Width="1041">
+             mc:Ignorable="d" Height="574" Width="1041">
     <UserControl.Resources>
 
     </UserControl.Resources>
     <Grid Margin="0,10,0,0" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="781*"/>
-            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <local:MenuItemSelectionControl></local:MenuItemSelectionControl>
-        <local:OrderSummaryControl></local:OrderSummaryControl>
-        <Button Name ="ItemSelectionButton" Margin="75,31,741,400">Item Selection</Button>
-        <Button Name ="CancelOrderButton" Margin="307,31,532,400">Cancel Order</Button>
-        <Button Name ="CompleteOrderButton" Margin="520,31,295,400">Complete Order</Button>
+
+        <local:OrderSummaryControl Grid.ColumnSpan="2" Margin="962,18,-595,-18"></local:OrderSummaryControl>
+        <Button Name ="ItemSelectionButton" Height="56" Margin="26,5,320,0" VerticalAlignment="Top">Item Selection</Button>
+        <Button Name ="CancelOrderButton" Margin="250,0,84,503">Cancel Order</Button>
+        <Button Name ="CompleteOrderButton" Grid.ColumnSpan="2" Margin="474,0,435,503">Complete Order</Button>
+        <Border x:Name="Container" Grid.Column="0" Margin="0,61,1,-61">
+            <local:MenuItemSelectionControl Margin="80,81,-80,-81"></local:MenuItemSelectionControl>
+        </Border>
     </Grid>
 </UserControl>

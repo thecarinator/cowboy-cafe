@@ -28,5 +28,13 @@ namespace CowboyCafe.Data
         /// Gets the calories of the side
         /// </summary>
         public abstract uint Calories { get; }
+
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                return new List<string>();
+            }
+        }
     }
 }

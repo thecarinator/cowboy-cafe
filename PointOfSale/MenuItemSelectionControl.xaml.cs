@@ -2,18 +2,8 @@
  * Class: MenuItemSelectionControl.xaml.cs
  * Purpose:
  */
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CowboyCafe.Data;
 
 namespace PointOfSale
@@ -23,6 +13,7 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        private OrderControl orderControl;
         public MenuItemSelectionControl()
         {
             InitializeComponent();
@@ -42,6 +33,7 @@ namespace PointOfSale
             AddJerkedSodaButton.Click += OnAddJerkedSodaButton_Clicked;
             AddTexasTeaButton.Click += OnAddTexasTeaButton_Clicked;
             AddWaterButton.Click += OnAddWaterButton_Clicked;
+            
         }
         /// <summary>
         /// Listener for the click event of the Cowpoke Chili Button
@@ -50,8 +42,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCowpokeChiliButton_Clicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
             CowpokeChili c = new CowpokeChili();
+            var screen = new CustomizeCowpokeChili();
             ((Order)DataContext).Add(c);
+            orderControl.SwapScreen(screen);
             
         }
 
@@ -208,5 +203,6 @@ namespace PointOfSale
         {
             ((Order)DataContext).Add(new Water());
         }
+
     }
 }

@@ -27,6 +27,7 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+            this.DataContext = new Order();
             CancelOrderButton.Click += OnCancelOrderButton_Clicked;
             CompleteOrderButton.Click += OnCompleteOrderButton_Clicked;
         }
@@ -49,6 +50,10 @@ namespace PointOfSale
         void OnCompleteOrderButton_Clicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+        }
+        public void SwapScreen(UIElement elem)
+        {
+            Container.Child = elem;
         }
     }
 }

@@ -23,9 +23,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0">
             <TextBlock TextAlignment="Center">Entree</TextBlock>
-            <Button Name ="AddCowpokeChiliButton">Cowpoke Chili</Button>
-            <Button Name ="AddTrailBurgerButton">Trail Burger</Button>
-            <Button Name ="AddAngryChickenButton">Angry Chicken</Button>
+            <Button Name ="AddCowpokeChiliButton" Tag="CowpokeChili">Cowpoke Chili</Button>
+            <Button Name ="AddTrailBurgerButton" Tag ="TrailBurger">Trail Burger</Button>
+            <Button Name ="AddAngryChickenButton" Tag="Angry">Angry Chicken</Button>
             <Button Name ="AddPecosPulledPorkButton">Peco's Pulled Pork</Button>
             <Button Name ="AddRustlersRibsButton">Rustler's Ribs</Button>
             <Button Name ="AddDakotaDoubleBurgerButton">Dakota Double Burger</Button>
