@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side: INotifyPropertyChanged
+    public abstract class Side: INotifyPropertyChanged, IOrderItem
     {
         private Size size;
         /// <summary>

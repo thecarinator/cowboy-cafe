@@ -42,11 +42,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCowpokeChiliButton_Clicked(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
+            
             CowpokeChili c = new CowpokeChili();
             var screen = new CustomizeCowpokeChili();
-            ((Order)DataContext).Add(c);
-            orderControl.SwapScreen(screen);
+            
+            AddItemAndOpenCustomizationScreen(c, screen);
             
         }
 

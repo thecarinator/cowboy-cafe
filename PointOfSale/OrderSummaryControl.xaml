@@ -24,11 +24,18 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <DockPanel>
-                            <TextBlock Text="{Binding}" DockPanel.Dock="Left"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding}" />
+                        <TextBlock Text ="{Binding Path = Price, StringFormat=c}" Grid.Column="1"/>
+                        <ListView ItemsSource="{Binding Path= SpecialInstructions}" Grid.Row="1"/>
 
-                            <TextBlock Text ="{Binding Path = Price, StringFormat=c}" DockPanel.Dock="Right"/>
-                        </DockPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
