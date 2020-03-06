@@ -7,10 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
         <TextBlock FontSize="30" Text="Customize Cowpoke Chili"/>
-        <StackPanel Orientation="Horizontal">
-            <Label>Green Onions</Label>
-            <CheckBox IsChecked="{Binding Path=GreenOnions}"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=GreenOnions}">GreenOnions</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+            <CheckBox IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
+            <CheckBox IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
         </StackPanel>
     </Grid>
 </UserControl>

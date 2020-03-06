@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
-             mc:Ignorable="d" Height="574" Width="1041">
+             mc:Ignorable="d" Height="574" Width="1205">
     <UserControl.Resources>
 
     </UserControl.Resources>
@@ -13,13 +13,23 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition >
+            </RowDefinition>
+        </Grid.RowDefinitions>
 
-        <local:OrderSummaryControl Grid.ColumnSpan="2" Margin="962,18,-595,-18"></local:OrderSummaryControl>
-        <Button Name ="ItemSelectionButton" Height="56" Margin="26,5,320,0" VerticalAlignment="Top">Item Selection</Button>
-        <Button Name ="CancelOrderButton" Margin="250,0,84,503">Cancel Order</Button>
-        <Button Name ="CompleteOrderButton" Grid.ColumnSpan="2" Margin="474,0,435,503">Complete Order</Button>
+        <local:OrderSummaryControl Grid.Column="1"/>
+        <DockPanel VerticalAlignment="Top" Grid.Column="0">
+            <Button Name ="ItemSelectionButton" Height="56" Grid.Column="0" Width="150" DockPanel.Dock="Left">Item Selection</Button>
+            <Button Name ="CancelOrderButton" Width="150">Cancel Order</Button>
+            <Button Name ="CompleteOrderButton" Width="150">Complete Order</Button>
+        </DockPanel>
+        
+        
+        
         <Border x:Name="Container" Grid.Column="0" Margin="0,61,1,-61">
-            <local:MenuItemSelectionControl Margin="80,81,-80,-81"></local:MenuItemSelectionControl>
+            <local:MenuItemSelectionControl Grid.Column="0" Grid.Row="1"></local:MenuItemSelectionControl>
         </Border>
     </Grid>
 </UserControl>

@@ -204,5 +204,19 @@ namespace PointOfSale
             ((Order)DataContext).Add(new Water());
         }
 
+        void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        {
+            var order = DataContext as Order;
+            if (order == null) throw new System.Exception("DataContext expected to be an Order instance.");
+
+            if (screen != null)
+            {
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new System.Exception("An ancestor of OrderControl exception.");
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
+            }
+            order.Add(item);
+        }
     }
 }
