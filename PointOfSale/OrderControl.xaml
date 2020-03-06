@@ -14,22 +14,27 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="450"/>
-            <RowDefinition >
+            <RowDefinition />
+            <RowDefinition Height="450" >
             </RowDefinition>
         </Grid.RowDefinitions>
 
-        <local:OrderSummaryControl Grid.Column="1"/>
-        <DockPanel VerticalAlignment="Top" Grid.Column="0">
-            <Button Name ="ItemSelectionButton" Height="56" Grid.Column="0" Width="150" DockPanel.Dock="Left">Item Selection</Button>
-            <Button Name ="CancelOrderButton" Width="150">Cancel Order</Button>
-            <Button Name ="CompleteOrderButton" Width="150">Complete Order</Button>
-        </DockPanel>
+        <local:OrderSummaryControl Grid.Column="1" Grid.Row="1"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name ="ItemSelectionButton" Grid.Column="0">Item Selection</Button>
+            <Button Name ="CancelOrderButton" Grid.Column="1">Cancel Order</Button>
+            <Button Name ="CompleteOrderButton" Grid.Column="2">Complete Order</Button>
+        </Grid>
         
         
         
-        <Border x:Name="Container" Grid.Column="0" Margin="0,61,1,-61">
-            <local:MenuItemSelectionControl Grid.Column="0" Grid.Row="1"></local:MenuItemSelectionControl>
+        <Border x:Name="Container" Grid.Column="0"  Grid.Row ="1" Margin="0,61,1,-61">
+            <local:MenuItemSelectionControl ></local:MenuItemSelectionControl>
         </Border>
     </Grid>
 </UserControl>
