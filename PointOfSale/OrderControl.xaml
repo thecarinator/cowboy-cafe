@@ -34,7 +34,7 @@
         
         
         <Border x:Name="Container" Grid.Column="0"  Grid.Row ="1" Margin="0,61,1,-61">
-            <local:MenuItemSelectionControl ></local:MenuItemSelectionControl>
+            <local:MenuItemSelectionControl></local:MenuItemSelectionControl>
         </Border>
     </Grid>
 </UserControl>

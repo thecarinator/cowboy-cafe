@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing drink
     /// </summary>
-    public abstract class Drink: IOrderItem
+    public abstract class Drink: IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the size of drink
@@ -38,5 +39,12 @@ namespace CowboyCafe.Data
         /// Gets the calories of the drink
         /// </summary>
         public abstract uint Calories { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
     }
 }

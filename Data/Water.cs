@@ -4,6 +4,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -13,6 +14,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public class Water : Drink
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         private bool lemon = false;
         /// <summary>
         /// If the water has lemon
@@ -20,7 +22,10 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set { 
+                lemon = value;
+                NotifyOfPropertyChange("Lemon");
+            }
         }
 
         private bool ice = true;
@@ -30,7 +35,9 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set { ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
         }
 
         /// <summary>

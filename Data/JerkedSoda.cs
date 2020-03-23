@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -13,6 +14,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public class JerkedSoda : Drink
     {
+        
         /// <summary>
         /// Flavor of soda
         /// </summary>
@@ -25,7 +27,9 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set { ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
         }
 
         /// <summary>

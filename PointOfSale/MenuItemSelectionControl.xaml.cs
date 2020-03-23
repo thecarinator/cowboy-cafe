@@ -58,8 +58,9 @@ namespace PointOfSale
         void OnAddAngryChickenButton_Clicked(object sender, RoutedEventArgs e)
         {
             AngryChicken a = new AngryChicken();
-            ((Order)DataContext).Add(a);
-            
+            var screen = new CustomizeAngryChicken();
+
+            AddItemAndOpenCustomizationScreen(a, screen);
         }
 
         /// <summary>

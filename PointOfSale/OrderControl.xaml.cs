@@ -30,6 +30,7 @@ namespace PointOfSale
             this.DataContext = new Order();
             CancelOrderButton.Click += OnCancelOrderButton_Clicked;
             CompleteOrderButton.Click += OnCompleteOrderButton_Clicked;
+            ItemSelectionButton.Click += OnItemSelectionButton_Clicked;
         }
 
         /// <summary>
@@ -50,6 +51,11 @@ namespace PointOfSale
         void OnCompleteOrderButton_Clicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+        }
+
+        void OnItemSelectionButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            
         }
         public void SwapScreen(UIElement elem)
         {

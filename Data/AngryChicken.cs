@@ -4,6 +4,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -13,7 +14,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public class AngryChicken: Entree
     {
-
+        public event PropertyChangedEventHandler PropertyChanged;
         private bool bread = true;
         /// <summary>
         /// If there's bread with the chicken
@@ -21,7 +22,11 @@ namespace CowboyCafe.Data
         public bool Bread
         {
             get { return bread; }
-            set { bread = value; }
+            set 
+            { 
+                bread = value;
+                NotifyOfPropertyChange("Bread");
+            }
         }
 
         private bool pickles = true;
@@ -31,7 +36,11 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickles; }
-            set { pickles = value; }
+            set 
+            { 
+                pickles = value;
+                NotifyOfPropertyChange("Pickle");
+            }
         }
 
         /// <summary>

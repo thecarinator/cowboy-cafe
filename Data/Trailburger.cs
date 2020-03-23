@@ -4,15 +4,19 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    
     /// <summary>
     /// Class representing the TrailBurger entree
     /// </summary>
     public class TrailBurger: Entree
+        
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         private bool bun = true;
         /// <summary>
         /// If the burger has buns
@@ -20,7 +24,11 @@ namespace CowboyCafe.Data
         public bool Bun
         {
             get { return bun; }
-            set { bun = value; }
+            set 
+            { 
+                bun = value;
+                NotifyOfPropertyChange("Bun");
+            }
         }
 
         private bool ketchup = true;
@@ -30,7 +38,11 @@ namespace CowboyCafe.Data
         public bool Ketchup
         {
             get { return ketchup; }
-            set { ketchup = value; }
+            set 
+            {   
+                ketchup = value;
+                NotifyOfPropertyChange("Ketchup");
+            }
         }
 
         private bool mustard = true;
@@ -40,7 +52,11 @@ namespace CowboyCafe.Data
         public bool Mustard
         {
             get { return mustard; }
-            set { mustard = value; }
+            set 
+            { 
+                mustard = value;
+                NotifyOfPropertyChange("Mustard");
+            }
         }
 
         private bool pickles = true;
@@ -50,7 +66,9 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickles; }
-            set { pickles = value; }
+            set { pickles = value;
+                NotifyOfPropertyChange("Pickle");
+            }
         }
 
         private bool cheese = true;
@@ -60,7 +78,9 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { cheese = value; }
+            set { cheese = value;
+                NotifyOfPropertyChange("Cheese");
+            }
         }
 
         /// <summary>

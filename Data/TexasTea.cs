@@ -20,13 +20,25 @@ namespace CowboyCafe.Data
         public bool Sweet
         {
             get { return sweet; }
-            set { sweet = value; }
+            set { sweet = value;
+                NotifyOfPropertyChange("Sweet");
+            }
         }
 
+
+        private bool lemon = false;
         /// <summary>
         /// If the tea has lemon
         /// </summary>
-        public bool Lemon { get; set; }
+        public bool Lemon 
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyOfPropertyChange("Lemon");
+            }
+        }
 
         
         private bool ice = true;
@@ -36,7 +48,9 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set { ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
         }
 
         /// <summary>
