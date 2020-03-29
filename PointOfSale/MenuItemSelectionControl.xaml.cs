@@ -71,7 +71,8 @@ namespace PointOfSale
         void OnAddDakotaDoubleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             DakotaDoubleBurger d = new DakotaDoubleBurger();
-            ((Order)DataContext).Add(d);
+            var screen = new CustomizeDakotaDoubleBurger();
+            AddItemAndOpenCustomizationScreen(d, screen);
             
         }
 
@@ -83,7 +84,9 @@ namespace PointOfSale
         void OnAddPecosPulledPorkButton_Clicked(object sender, RoutedEventArgs e)
         {
             PecosPulledPork p = new PecosPulledPork();
-            ((Order)DataContext).Add(p);
+            var screen = new CustomizePecosPulledPork();
+
+            AddItemAndOpenCustomizationScreen(p, screen);
             
         }
 
@@ -107,7 +110,9 @@ namespace PointOfSale
         void OnAddTexasTripleBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             TexasTripleBurger t = new TexasTripleBurger();
-            ((Order)DataContext).Add(t);
+            var screen = new CustomizeTexasTripleBurger();
+
+            AddItemAndOpenCustomizationScreen(t, screen);
            
         }
 
@@ -119,7 +124,9 @@ namespace PointOfSale
         void OnAddTrailBurgerButton_Clicked(object sender, RoutedEventArgs e)
         {
             TrailBurger tb = new TrailBurger();
-            ((Order)DataContext).Add(tb);
+            var screen = new CustomizeTrailBurger();
+
+            AddItemAndOpenCustomizationScreen(tb, screen);
             
         }
 
@@ -131,7 +138,8 @@ namespace PointOfSale
         void OnAddBakedBeansButton_Clicked(object sender, RoutedEventArgs e)
         {
             BakedBeans b = new BakedBeans();
-            ((Order)DataContext).Add(b);
+            var screen = new CustomizeBakedBeans();
+            AddItemAndOpenCustomizationScreen(b, screen);
             
         }
 
@@ -142,7 +150,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddChiliCheeseFriesButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new ChiliCheeseFries());
+            ChiliCheeseFries c = new ChiliCheeseFries();
+            var screen = new CustomizeChiliCheeseFries();
+            AddItemAndOpenCustomizationScreen(c, screen);
         }
 
         /// <summary>
@@ -152,7 +162,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCornDodgersButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new CornDodgers());
+            CornDodgers c = new CornDodgers();
+            var screen = new CustomizeCornDodgers();
+            AddItemAndOpenCustomizationScreen(c, screen);
+            
         }
 
         /// <summary>
@@ -162,7 +175,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddPanDeCampoButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new PanDeCampo());
+            PanDeCampo p = new PanDeCampo();
+            var screen = new CustomizePanDeCampo();
+            AddItemAndOpenCustomizationScreen(p, screen);
         }
 
         /// <summary>
@@ -172,7 +187,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddCowboyCoffeeButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new CowboyCoffee());
+            CowboyCoffee c = new CowboyCoffee();
+            var screen = new CustomizeCowboyCoffee();
+
+            AddItemAndOpenCustomizationScreen(c, screen);
         }
 
         /// <summary>
@@ -182,7 +200,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddJerkedSodaButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new JerkedSoda());
+            JerkedSoda j = new JerkedSoda();
+            var screen = new CustomizeJerkedSoda();
+            AddItemAndOpenCustomizationScreen(j, screen);
         }
 
         /// <summary>
@@ -192,7 +212,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddTexasTeaButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new TexasTea());
+            TexasTea t = new TexasTea();
+            var screen = new CustomizeTexasTea();
+            AddItemAndOpenCustomizationScreen(t, screen);
         }
 
         /// <summary>
@@ -202,9 +224,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnAddWaterButton_Clicked(object sender, RoutedEventArgs e)
         {
-            ((Order)DataContext).Add(new Water());
+            Water w = new Water();
+            var screen = new CustomizeWater();
+            AddItemAndOpenCustomizationScreen(w, screen);
         }
 
+        /// <summary>
+        /// Switches to the customization screen
+        /// </summary>
+        /// <param name="item"> item being added</param>
+        /// <param name="screen"> screen being switched to</param>
         void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             var order = DataContext as Order;
