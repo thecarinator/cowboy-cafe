@@ -9,11 +9,29 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="400"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="30" Text="Customize Cowpoke Chili"/>
+        <TextBlock FontSize="30" Text="Customize Jerked Soda"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+        </StackPanel>
+        <TextBlock FontSize="20" Text="Size" Grid.Row="2"/>
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="True">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="MediumSize">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="LargeSize">Large</RadioButton>
+        </StackPanel>
+        <TextBlock Grid.Row="4" FontSize="20" Text="Flavor"/>
+        <StackPanel Orientation="Vertical" Grid.Row="5">
+            <RadioButton GroupName="Flavors" Name="CreamSodaButton" IsChecked="True">Cream Soda</RadioButton>
+            <RadioButton GroupName="Flavors" Name="OrangeSodaButton">Orange Soda</RadioButton>
+            <RadioButton GroupName="Flavors" Name ="SarsparillaButton">Sarsparilla</RadioButton>
+            <RadioButton GroupName="Flavors" Name ="BirchBeerButton">Birch Beer</RadioButton>
+            <RadioButton GroupName="Flavors" Name="RootBeerButton">Root Beer</RadioButton>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -9,16 +9,21 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="200"/>
             <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="330"/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" Text="Customize Water"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
+            
             <CheckBox IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
             <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Vertical">
-            <TextBlock> Size</TextBlock>
+        <TextBlock FontSize="20" Text="Size" Grid.Row="2"/>
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="True">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="MediumSize">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="LargeSize">Large</RadioButton>
         </StackPanel>
     </Grid>
 </UserControl>

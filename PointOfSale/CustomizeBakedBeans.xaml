@@ -7,6 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="370"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="30" Text="Customize Baked Beans"/>
+        <TextBlock FontSize="20" Text="Size" Grid.Row="1"/>
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="True">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="MediumSize">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="LargeSize">Large</RadioButton>
+        </StackPanel>
     </Grid>
 </UserControl>
