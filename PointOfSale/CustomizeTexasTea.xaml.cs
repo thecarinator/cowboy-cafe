@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeTexasTea.xaml.cs
+ * Purpose: Customizes Texas Tea
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

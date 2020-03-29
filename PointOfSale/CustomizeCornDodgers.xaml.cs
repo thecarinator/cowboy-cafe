@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeCornDodgers.xaml.cs
+ * Purpose: Customizes Corn Dodgers
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

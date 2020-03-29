@@ -1,6 +1,6 @@
 ﻿/* Author: Cari Miller
  * Class: OrderSummaryControl.xaml.cs
- * Purpose:
+ * Purpose: Summarizes the order
  */
 using System;
 using System.Collections.Generic;

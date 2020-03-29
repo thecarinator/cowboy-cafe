@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeJerkedSoda.xaml.cs
+ * Purpose: Customizes jerked soda
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

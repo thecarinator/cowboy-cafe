@@ -1,6 +1,6 @@
 ﻿/* Author: Cari Miller
  * Class: OrderControl.xaml.cs
- * Purpose:
+ * Purpose: Handles the order buttons
  */
 
 using System;
@@ -24,6 +24,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        
         public OrderControl()
         {
             InitializeComponent();
@@ -53,10 +54,21 @@ namespace PointOfSale
             this.DataContext = new Order();
         }
 
+        /// <summary>
+        /// Selects Item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnItemSelectionButton_Clicked(object sender, RoutedEventArgs e)
         {
             
+            
         }
+
+        /// <summary>
+        /// swaps screen
+        /// </summary>
+        /// <param name="elem"></param>
         public void SwapScreen(UIElement elem)
         {
             Container.Child = elem;

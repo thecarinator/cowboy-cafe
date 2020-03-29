@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeAngryChicken.xaml.cs
+ * Purpose: Customizes Angry Chicken
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

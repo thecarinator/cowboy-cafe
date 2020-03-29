@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeTexasTripleBurger.xaml.cs
+ * Purpose: Customizes Texas Triple Burger
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

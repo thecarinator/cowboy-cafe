@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeCowpokeChili.xaml.cs
+ * Purpose: Customizes Cowpoke chili
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

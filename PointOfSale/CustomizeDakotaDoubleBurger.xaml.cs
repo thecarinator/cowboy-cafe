@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeDakotaDoubleBurger.xaml.cs
+ * Purpose: Customizes Dakota Double Burger
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

@@ -1,6 +1,6 @@
 ﻿/* Author: Cari Miller
  * Class: MenuItemSelectionControl.xaml.cs
- * Purpose:
+ * Purpose: Adds Item to order
  */
 using System.Windows;
 using System.Windows.Controls;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizeChiliCheeseFries.xaml.cs
+ * Purpose: Customizes chili cheese fries
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

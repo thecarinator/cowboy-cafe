@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizePecosPulledPork.xaml.cs
+ * Purpose: Customizes Pecos Pulled Pork
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

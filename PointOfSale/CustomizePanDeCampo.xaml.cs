@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: CustomizePanDeCampo.xaml.cs
+ * Purpose: Customizes Pan de Campo
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
