@@ -61,7 +61,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnItemSelectionButton_Clicked(object sender, RoutedEventArgs e)
         {
-            
+            Container.Child = new MenuItemSelectionControl();
             
         }
 
