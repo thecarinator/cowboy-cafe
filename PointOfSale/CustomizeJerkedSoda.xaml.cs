@@ -31,11 +31,11 @@ namespace PointOfSale
             SmallSize.Click += Size_Clicked;
             MediumSize.Click += Size_Clicked;
             LargeSize.Click += Size_Clicked;
-            OrangeSodaButton.Click += Flavor_Clicked;
-            CreamSodaButton.Click += Flavor_Clicked;
-            BirchBeerButton.Click += Flavor_Clicked;
-            RootBeerButton.Click += Flavor_Clicked;
-            SarsparillaButton.Click += Flavor_Clicked;
+            OrangeSodaButton.Click += Size_Clicked;
+            CreamSodaButton.Click += Size_Clicked;
+            BirchBeerButton.Click += Size_Clicked;
+            RootBeerButton.Click += Size_Clicked;
+            SarsparillaButton.Click += Size_Clicked;
         }
         void Size_Clicked(object sender, RoutedEventArgs e)
         {
@@ -51,14 +51,6 @@ namespace PointOfSale
                 case "LargeSize":
                     b.Size = Size.Large;
                     break;
-            }
-        }
-
-        void Flavor_Clicked(object sender, RoutedEventArgs e)
-        {
-            JerkedSoda b = (JerkedSoda)DataContext;
-            switch (((RadioButton)sender).Name)
-            {
                 case "CreamSodaButton":
                     b.Flavor = SodaFlavor.CreamSoda;
                     break;

@@ -14,11 +14,20 @@ namespace CowboyCafe.Data
     /// </summary>
     public class JerkedSoda : Drink
     {
-        
+        public event PropertyChangedEventHandler PropertyChanged;
+        SodaFlavor flavor;
         /// <summary>
         /// Flavor of soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor
+        {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+            }
+        }
 
         private bool ice = true;
         /// <summary>
