@@ -28,9 +28,7 @@ namespace PointOfSale
         public CustomizeJerkedSoda()
         {
             InitializeComponent();
-            SmallSize.Click += Size_Clicked;
-            MediumSize.Click += Size_Clicked;
-            LargeSize.Click += Size_Clicked;
+            
             OrangeSodaButton.Click += Size_Clicked;
             CreamSodaButton.Click += Size_Clicked;
             BirchBeerButton.Click += Size_Clicked;
@@ -40,17 +38,8 @@ namespace PointOfSale
         void Size_Clicked(object sender, RoutedEventArgs e)
         {
             JerkedSoda b = (JerkedSoda)DataContext;
-            switch (((RadioButton)sender).Name)
+            switch (((Button)sender).Name)
             {
-                case "SmallSize":
-                    b.Size = Size.Small;
-                    break;
-                case "MediumSize":
-                    b.Size = Size.Medium;
-                    break;
-                case "LargeSize":
-                    b.Size = Size.Large;
-                    break;
                 case "CreamSodaButton":
                     b.Flavor = SodaFlavor.CreamSoda;
                     break;
@@ -66,6 +55,8 @@ namespace PointOfSale
                 case "RootBeerButton":
                     b.Flavor = SodaFlavor.RootBeer;
                     break;
+                default:
+                    throw new NotImplementedException();
             }
         }
     }

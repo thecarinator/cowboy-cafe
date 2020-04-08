@@ -25,7 +25,8 @@ namespace CowboyCafe.Data
             set
             {
                 flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                NotifyOfPropertyChange("Flavor");
+
             }
         }
 
@@ -102,41 +103,28 @@ namespace CowboyCafe.Data
         /// <returns> returns string</returns>
         public override string ToString()
         {
-            string be = "";
-            string b = "";
-            if (Size == Size.Small)
+            string b;
+            switch (Flavor)
             {
-                be = "Small";
+                case SodaFlavor.BirchBeer:
+                    b = "Birch Beer";
+                    break;
+                case SodaFlavor.RootBeer:
+                    b = "Root Beer";
+                    break;
+                case SodaFlavor.CreamSoda:
+                    b = "Cream Soda";
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    b = "Orange Soda";
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    b = "Sarsparilla";
+                    break;
+                default:
+                    throw new NotImplementedException("Unknown flavor");
             }
-            else if (Size == Size.Medium)
-            {
-                be = "Medium";
-            }
-            else
-            {
-                be = "Large";
-            }
-            if (Flavor == SodaFlavor.BirchBeer)
-            {
-                b = "Birch Beer";
-            }
-            else if (Flavor == SodaFlavor.CreamSoda)
-            {
-                b = "Cream Soda";
-            }
-            else if (Flavor == SodaFlavor.OrangeSoda)
-            {
-                b = "Orange Soda";
-            }
-            else if (Flavor == SodaFlavor.RootBeer)
-            {
-                b = "Root Beer";
-            }
-            else
-            {
-                b = "Sarsparilla";
-            }
-            return be + " " + b + " Jerked Soda";
+            return Size.ToString() + " " + b + " Jerked Soda";
         }
     }
 }

@@ -20,7 +20,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListView ItemsSource ="{Binding Path=Items}" Grid.Row ="1" Grid.Column="0" Name ="OrderList">
+        <ListView SelectionChanged ="ItemSelected" ItemsSource ="{Binding Path=Items}" Grid.Row ="1" Grid.Column="0" Name ="OrderList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

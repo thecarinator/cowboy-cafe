@@ -15,9 +15,9 @@
         <TextBlock FontSize="30" Text="Customize Baked Beans"/>
         <TextBlock FontSize="20" Text="Size" Grid.Row="1"/>
         <StackPanel Grid.Row="2" Orientation="Vertical">
-            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="True" Click="Size_Clicked">Small</RadioButton>
-            <RadioButton GroupName="Sizes" Name ="MediumSize" Click="Size_Clicked">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" Name ="LargeSize" Click="Size_Clicked" >Large</RadioButton>
+            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="{Binding Path=IsSmall}">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="MediumSize" IsChecked="{Binding Path=IsMedium}">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="LargeSize" IsChecked="{Binding Path=IsLarge}">Large</RadioButton>
         </StackPanel>
     </Grid>
 </UserControl>

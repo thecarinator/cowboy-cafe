@@ -15,9 +15,9 @@
         <TextBlock FontSize="30" Text="Customize Chili Cheese Fries"/>
         <TextBlock FontSize="20" Text="Size" Grid.Row="1"/>
         <StackPanel Grid.Row="2" Orientation="Vertical">
-            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="True">Small</RadioButton>
-            <RadioButton GroupName="Sizes" Name ="MediumSize">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" Name ="LargeSize">Large</RadioButton>
+            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="{Binding Path=IsSmall}">Small</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="MediumSize" IsChecked="{Binding Path=IsMedium}">Medium</RadioButton>
+            <RadioButton GroupName="Sizes" Name ="LargeSize" IsChecked="{Binding Path=IsLarge}">Large</RadioButton>
         </StackPanel>
     </Grid>
 </UserControl>

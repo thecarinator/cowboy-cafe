@@ -29,9 +29,27 @@ namespace CowboyCafe.Data
             {
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsSmall"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsMedium"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsLarge"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             } 
+        }
+        public bool IsSmall
+        {
+            get { return Size == Size.Small; }
+            set { Size = Size.Small; }
+        }
+        public bool IsMedium
+        {
+            get { return Size == Size.Medium; }
+            set { Size = Size.Medium; }
+        }
+        public bool IsLarge
+        {
+            get { return Size == Size.Large; }
+            set { Size = Size.Large; }
         }
 
         /// <summary>

@@ -27,26 +27,7 @@ namespace PointOfSale
         public CustomizeCornDodgers()
         {
             InitializeComponent();
-            SmallSize.Click += Size_Clicked;
-            MediumSize.Click += Size_Clicked;
-            LargeSize.Click += Size_Clicked;
-        }
-
-        void Size_Clicked(object sender, RoutedEventArgs e)
-        {
-            CornDodgers b = (CornDodgers)DataContext;
-            switch (((RadioButton)sender).Name)
-            {
-                case "SmallSize":
-                    b.Size = Size.Small;
-                    break;
-                case "MediumSize":
-                    b.Size = Size.Medium;
-                    break;
-                case "LargeSize":
-                    b.Size = Size.Large;
-                    break;
-            }
+           
         }
     }
 }

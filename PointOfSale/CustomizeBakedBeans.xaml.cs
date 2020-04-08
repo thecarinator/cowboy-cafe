@@ -29,22 +29,5 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
-        void Size_Clicked(object sender, RoutedEventArgs e)
-        {
-            BakedBeans b = (BakedBeans)DataContext;
-            switch (((RadioButton)sender).Name)
-            {
-                case "SmallSize":
-                    b.Size = Size.Small;
-                    break;
-                case "MediumSize":
-                    b.Size = Size.Medium;
-                    break;
-                case "LargeSize":
-                    b.Size = Size.Large;
-                    break;
-            }
-        }
     }
 }

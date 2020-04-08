@@ -28,13 +28,30 @@ namespace CowboyCafe.Data
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                NotifyOfPropertyChange("Size");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsSmall"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsMedium"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsLarge"));
             }
         }
 
-        /// <summary>
+       
+        public bool IsSmall
+        {
+            get { return Size == Size.Small; }
+            set { Size = Size.Small; }
+        }
+        public bool IsMedium
+        {
+            get { return Size == Size.Medium; }
+            set { Size = Size.Medium; }
+        }
+        public bool IsLarge
+        {
+            get { return Size == Size.Large; }
+            set { Size = Size.Large; }
+        }
+
         /// If the drink has ice
         /// </summary>
         public abstract bool Ice { get; set; }
@@ -58,7 +75,10 @@ namespace CowboyCafe.Data
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
         }
     }
 }

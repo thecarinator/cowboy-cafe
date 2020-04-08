@@ -98,7 +98,8 @@ namespace PointOfSale
         void OnAddRustlersRibsButton_Clicked(object sender, RoutedEventArgs e)
         {
             RustlersRibs r = new RustlersRibs();
-            ((Order)DataContext).Add(r);
+            var screen = new CustomizeRustlersRibs();
+            AddItemAndOpenCustomizationScreen(r, screen);
             
         }
 
