@@ -38,8 +38,9 @@ namespace PointOfSale
         void Size_Clicked(object sender, RoutedEventArgs e)
         {
             JerkedSoda b = (JerkedSoda)DataContext;
-            switch (((Button)sender).Name)
+            switch (((RadioButton)sender).Name)
             {
+              
                 case "CreamSodaButton":
                     b.Flavor = SodaFlavor.CreamSoda;
                     break;

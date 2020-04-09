@@ -35,17 +35,27 @@ namespace CowboyCafe.Data
             }
         }
 
-       
+       /// <summary>
+       /// Checks if the drink is a small
+       /// </summary>
         public bool IsSmall
         {
             get { return Size == Size.Small; }
             set { Size = Size.Small; }
         }
+
+        /// <summary>
+        /// Checks if the drink is a medium
+        /// </summary>
         public bool IsMedium
         {
             get { return Size == Size.Medium; }
             set { Size = Size.Medium; }
         }
+
+        /// <summary>
+        /// Checks if the drink is a large
+        /// </summary>
         public bool IsLarge
         {
             get { return Size == Size.Large; }
@@ -72,6 +82,11 @@ namespace CowboyCafe.Data
         public abstract uint Calories { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

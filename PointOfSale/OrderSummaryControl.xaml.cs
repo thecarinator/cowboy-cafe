@@ -167,6 +167,19 @@ namespace PointOfSale
                     order.SwapScreen(scr);
                 }
             }
+
+        }
+
+        private void ButtClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button butt)
+            { 
+                if (DataContext is Order ord)
+                {
+                    ord.Remove((IOrderItem)butt.DataContext);
+                    
+                }
+            }
         }
     }
 }

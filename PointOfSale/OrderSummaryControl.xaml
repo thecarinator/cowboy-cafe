@@ -27,6 +27,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -35,6 +36,7 @@
                         <TextBlock Text="{Binding}" />
                         <TextBlock Text ="{Binding Path = Price, StringFormat=c}" Grid.Column="1"/>
                         <ListView ItemsSource="{Binding Path= SpecialInstructions}" Grid.Row="1"/>
+                        <Button Background="Red" Grid.Column="2" Click="ButtClicked">X</Button>
 
                     </Grid>
                 </DataTemplate>
