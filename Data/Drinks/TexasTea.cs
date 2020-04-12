@@ -20,7 +20,10 @@ namespace CowboyCafe.Data
         public bool Sweet
         {
             get { return sweet; }
-            set { sweet = value;
+            set 
+            {
+                if (sweet == value) return;
+                sweet = value;
                 NotifyOfPropertyChange("Sweet");
             }
         }
@@ -35,6 +38,7 @@ namespace CowboyCafe.Data
             get { return lemon; }
             set
             {
+                if (lemon == value) return;
                 lemon = value;
                 NotifyOfPropertyChange("Lemon");
             }
@@ -48,7 +52,10 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value;
+            set 
+            {
+                if (ice == value) return;
+                ice = value;
                 NotifyOfPropertyChange("Ice");
             }
         }

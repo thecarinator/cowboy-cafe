@@ -65,6 +65,7 @@ namespace PointOfSale
         {
             Container.Child = new MenuItemSelectionControl();
             
+            
         }
 
         /// <summary>

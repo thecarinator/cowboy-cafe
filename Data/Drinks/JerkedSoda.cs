@@ -15,21 +15,7 @@ namespace CowboyCafe.Data
     public class JerkedSoda : Drink
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        SodaFlavor flavor;
-        /// <summary>
-        /// Flavor of soda
-        /// </summary>
-        public SodaFlavor Flavor
-        {
-            get { return flavor; }
-            set
-            {
-                flavor = value;
-                NotifyOfPropertyChange("Flavor");
-
-            }
-        }
-
+        
         private bool ice = true;
         /// <summary>
         /// If the soda has ice
@@ -37,7 +23,10 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value;
+            set 
+            {
+                if (ice == value) return;
+                ice = value;
                 NotifyOfPropertyChange("Ice");
             }
         }

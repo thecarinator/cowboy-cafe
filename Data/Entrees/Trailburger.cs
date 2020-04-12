@@ -16,7 +16,7 @@ namespace CowboyCafe.Data
     public class TrailBurger: Entree
         
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         private bool bun = true;
         /// <summary>
         /// If the burger has buns
@@ -25,7 +25,8 @@ namespace CowboyCafe.Data
         {
             get { return bun; }
             set 
-            { 
+            {
+                if (bun == value) return;
                 bun = value;
                 NotifyOfPropertyChange("Bun");
             }
@@ -39,7 +40,8 @@ namespace CowboyCafe.Data
         {
             get { return ketchup; }
             set 
-            {   
+            {
+                if (ketchup == value) return;
                 ketchup = value;
                 NotifyOfPropertyChange("Ketchup");
             }
@@ -53,7 +55,8 @@ namespace CowboyCafe.Data
         {
             get { return mustard; }
             set 
-            { 
+            {
+                if (mustard == value) return;
                 mustard = value;
                 NotifyOfPropertyChange("Mustard");
             }
@@ -66,7 +69,10 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickles; }
-            set { pickles = value;
+            set 
+            {
+                if (pickles == value) return;
+                pickles = value;
                 NotifyOfPropertyChange("Pickle");
             }
         }
@@ -78,7 +84,10 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { cheese = value;
+            set 
+            {
+                if (cheese == value) return;
+                cheese = value;
                 NotifyOfPropertyChange("Cheese");
             }
         }

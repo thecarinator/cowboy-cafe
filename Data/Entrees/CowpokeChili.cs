@@ -14,7 +14,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class CowpokeChili : Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private bool cheese = true;
         /// <summary>
         /// If the chili is topped with cheese
@@ -24,6 +23,7 @@ namespace CowboyCafe.Data
             get { return cheese; }
             set
             {
+                if (cheese == value) return;
                 cheese = value;
                 NotifyOfPropertyChange("Cheese");
             }
@@ -38,6 +38,7 @@ namespace CowboyCafe.Data
             get { return sourCream; }
             set
             {
+                if (sourCream == value) return;
                 sourCream = value;
                 NotifyOfPropertyChange("SourCream");
             }
@@ -52,6 +53,7 @@ namespace CowboyCafe.Data
             get { return greenOnions; }
             set
             {
+                if (greenOnions == value) return;
                 greenOnions = value;
                 NotifyOfPropertyChange("GreenOnions");
             }
@@ -66,6 +68,7 @@ namespace CowboyCafe.Data
             get { return tortillaStrips; }
             set
             {
+                if (tortillaStrips == value) return;
                 tortillaStrips = value;
                 NotifyOfPropertyChange("TortillaStrips");
             }

@@ -22,7 +22,10 @@ namespace CowboyCafe.Data
         public bool Bread
         {
             get { return bread; }
-            set { bread = value;
+            set 
+            {
+                if (bread == value) return;
+                bread = value;
                 NotifyOfPropertyChange("Bread");
 
             }
@@ -35,7 +38,10 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickles; }
-            set { pickles = value;
+            set 
+            {
+                if (pickles == value) return;
+                pickles = value;
                 NotifyOfPropertyChange("Pickle");
             }
         }

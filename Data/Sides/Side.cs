@@ -15,7 +15,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Side: INotifyPropertyChanged, IOrderItem
     {
-        private Size size;
+        private Size size = Size.Small;
         /// <summary>
         /// Gets the size of the side
         /// </summary>
@@ -27,6 +27,7 @@ namespace CowboyCafe.Data
             }
             set
             {
+                if (size == value) return;
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsSmall"));
@@ -36,20 +37,45 @@ namespace CowboyCafe.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             } 
         }
+
+        /// <summary>
+        /// Checks if the side is a small
+        /// </summary> =
         public bool IsSmall
         {
-            get { return Size == Size.Small; }
-            set { Size = Size.Small; }
+            get { return (Size == Size.Small); }
+            set
+            {
+                if (Size == Size.Small) return;
+                Size = Size.Small;
+            }
         }
+
+        /// <summary>
+        /// Checks if the side is a medium
+        /// </summary>
         public bool IsMedium
         {
             get { return Size == Size.Medium; }
-            set { Size = Size.Medium; }
+            set
+            {
+                if (Size == Size.Medium) return;
+                Size = Size.Medium;
+            }
         }
+
+        private bool islarge;
+        /// <summary>
+        /// Checks if the side is a large
+        /// </summary>
         public bool IsLarge
         {
             get { return Size == Size.Large; }
-            set { Size = Size.Large; }
+            set
+            {
+                if (Size == Size.Large) return;
+                Size = Size.Large;
+            }
         }
 
         /// <summary>

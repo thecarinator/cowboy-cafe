@@ -14,7 +14,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class Water : Drink
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private bool lemon = false;
         /// <summary>
         /// If the water has lemon
@@ -22,7 +21,9 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { 
+            set 
+            {
+                if (lemon == value) return;
                 lemon = value;
                 NotifyOfPropertyChange("Lemon");
             }
@@ -35,7 +36,10 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value;
+            set 
+            {
+                if (ice == value) return;
+                ice = value;
                 NotifyOfPropertyChange("Ice");
             }
         }

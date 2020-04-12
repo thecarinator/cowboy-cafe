@@ -30,7 +30,7 @@ namespace PointOfSale
 
         private void ItemSelected(object sender, SelectionChangedEventArgs e)
         {
-            IOrderItem p = ((sender as ListView).SelectedItem as IOrderItem);
+            IOrderItem p = ((sender as ListBox).SelectedItem as IOrderItem);
             var order = this.FindAncestor<OrderControl>();
             if (p is AngryChicken)
             {
@@ -177,7 +177,9 @@ namespace PointOfSale
                 if (DataContext is Order ord)
                 {
                     ord.Remove((IOrderItem)butt.DataContext);
-                    
+                    var scr = new MenuItemSelectionControl();
+                    var order = this.FindAncestor<OrderControl>();
+                    order.SwapScreen(scr);
                 }
             }
         }

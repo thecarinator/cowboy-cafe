@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" Text="Customize Cowpoke Chili"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding Path=GreenOnions}">GreenOnions</CheckBox>
+            <CheckBox IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
             <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
             <CheckBox IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
             <CheckBox IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>

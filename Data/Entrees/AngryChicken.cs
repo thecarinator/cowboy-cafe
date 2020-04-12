@@ -14,7 +14,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class AngryChicken: Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private bool bread = true;
         /// <summary>
         /// If there's bread with the chicken
@@ -23,7 +22,8 @@ namespace CowboyCafe.Data
         {
             get { return bread; }
             set 
-            { 
+            {
+                if (bread == value) return;
                 bread = value;
                 NotifyOfPropertyChange("Bread");
             }
@@ -37,7 +37,8 @@ namespace CowboyCafe.Data
         {
             get { return pickles; }
             set 
-            { 
+            {
+                if (pickles == value) return;
                 pickles = value;
                 NotifyOfPropertyChange("Pickle");
             }

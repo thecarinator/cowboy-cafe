@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public class DakotaDoubleBurger: Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         private bool bun = true;
         /// <summary>
         /// If the double burger has buns
@@ -23,7 +23,8 @@ namespace CowboyCafe.Data
         {
             get { return bun; }
             set 
-            { 
+            {
+                if (bun == value) return;
                 bun = value;
                 NotifyOfPropertyChange("Bun");
             }
@@ -37,7 +38,8 @@ namespace CowboyCafe.Data
         {
             get { return tomato; }
             set 
-            { 
+            {
+                if (tomato == value) return;
                 tomato = value;
                 NotifyOfPropertyChange("Tomato");
             }
@@ -51,7 +53,8 @@ namespace CowboyCafe.Data
         {
             get { return lettuce; }
             set 
-            { 
+            {
+                if (lettuce == value) return;
                 lettuce = value;
                 NotifyOfPropertyChange("Lettuce");
             }
@@ -65,7 +68,8 @@ namespace CowboyCafe.Data
         {
             get { return mayo; }
             set 
-            { 
+            {
+                if (mayo == value) return;
                 mayo = value;
                 NotifyOfPropertyChange("Mayo");
             }
@@ -79,7 +83,8 @@ namespace CowboyCafe.Data
         {
             get { return ketchup; }
             set
-            { 
+            {
+                if (ketchup == value) return;
                 ketchup = value;
                 NotifyOfPropertyChange("Ketchup");
             }
@@ -93,7 +98,8 @@ namespace CowboyCafe.Data
         {
             get { return mustard; }
             set 
-            { 
+            {
+                if (mustard == value) return;
                 mustard = value;
                 NotifyOfPropertyChange("Mustard");
             }
@@ -106,7 +112,9 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickles; }
-            set { 
+            set 
+            {
+                if (pickles == value) return;
                 pickles = value;
                 NotifyOfPropertyChange("Pickle");
             }
@@ -120,7 +128,8 @@ namespace CowboyCafe.Data
         {
             get { return cheese; }
             set 
-            { 
+            {
+                if (cheese == value) return;
                 cheese = value;
                 NotifyOfPropertyChange("Cheese");
             }

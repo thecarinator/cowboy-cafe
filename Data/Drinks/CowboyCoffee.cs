@@ -22,6 +22,7 @@ namespace CowboyCafe.Data
             get { return decaf; }
             set
             {
+                if (decaf == value) return;
                 decaf = value;
                 NotifyOfPropertyChange("Decaf");
             }
@@ -37,6 +38,7 @@ namespace CowboyCafe.Data
             get { return roc; }
             set
             {
+                if (roc == value) return;
                 roc = value;
                 NotifyOfPropertyChange("RoomForCream");
             }
@@ -53,6 +55,7 @@ namespace CowboyCafe.Data
             get { return ice; }
             set
             {
+                if (ice == value) return;
                 ice = value;
                 NotifyOfPropertyChange("Ice");
             }

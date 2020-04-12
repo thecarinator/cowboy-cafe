@@ -19,14 +19,21 @@
             <RowDefinition Height="350"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <ListView SelectionChanged ="ItemSelected" ItemsSource ="{Binding Path=Items}" Grid.Row ="1" Grid.Column="0" Name ="OrderList">
-            <ListView.ItemTemplate>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock>Order</TextBlock>
+            <TextBlock Text="{Binding Path=OrderNumber}" Grid.Column="1"/>
+        </Grid>
+        <ListBox SelectionChanged ="ItemSelected" ItemsSource ="{Binding Path=Items}" Grid.Row ="1" Grid.Column="0" Name ="OrderList">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -35,17 +42,16 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding}" />
                         <TextBlock Text ="{Binding Path = Price, StringFormat=c}" Grid.Column="1"/>
-                        <ListView ItemsSource="{Binding Path= SpecialInstructions}" Grid.Row="1"/>
-                        <Button Background="Red" Grid.Column="2" Click="ButtClicked">X</Button>
+                        <ListBox ItemsSource="{Binding Path= SpecialInstructions}" Grid.Row="1"/>
+                        <Button Background="Red" Grid.Column="2" Click="ButtClicked" Width="25">X</Button>
 
                     </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <TextBlock Grid.Row="2"> Subtotal</TextBlock>
         <TextBlock Grid.Row="2"  Grid.Column ="1" Text="{Binding Path=Subtotal, StringFormat=c}"> </TextBlock>
         
-        <TextBlock>Order</TextBlock>
-        <TextBlock Text="{Binding Path=OrderNumber}" Margin="76,0,199,0"/>
+        
     </Grid>
 </UserControl>

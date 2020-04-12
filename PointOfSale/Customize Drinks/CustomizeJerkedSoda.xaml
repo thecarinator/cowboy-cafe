@@ -21,18 +21,18 @@
         </StackPanel>
         <TextBlock FontSize="20" Text="Size" Grid.Row="2"/>
         <StackPanel Grid.Row="3" Orientation="Vertical">
-            <RadioButton GroupName="Sizes" Name="SmallSize" IsChecked="{Binding Path=IsSmall}">Small</RadioButton>
-            <RadioButton GroupName="Sizes" Name ="MediumSize" IsChecked="{Binding Path=IsMedium}">Medium</RadioButton>
-            <RadioButton GroupName="Sizes" Name ="LargeSize" IsChecked="{Binding Path=IsLarge}">Large</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsSmall}">Small</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsMedium}">Medium</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsLarge}">Large</RadioButton>
         </StackPanel>
         <TextBlock Grid.Row="4" FontSize="20" Text="Flavor"/>
         <StackPanel Orientation="Vertical" Grid.Row="5">
 
-            <Button Name="CreamSodaButton">Cream Soda</Button>
-            <Button Name="OrangeSodaButton">Orange Soda</Button>
-            <Button Name ="SarsparillaButton">Sarsparilla</Button>
-            <Button Name ="BirchBeerButton">Birch Beer</Button>
-            <Button Name="RootBeerButton">Root Beer</Button>
+            <RadioButton IsChecked="{Binding Path=IsCreamSoda}">Cream Soda</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsOrangeSoda}">OrangeSoda</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsSarsparilla}">Sarsparilla</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsBirchBeer}">Birch Beer</RadioButton>
+            <RadioButton IsChecked="{Binding Path=IsRootBeer}">Root Beer</RadioButton>
         </StackPanel>
     </Grid>
 </UserControl>
