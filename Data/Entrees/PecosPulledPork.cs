@@ -14,7 +14,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class PecosPulledPork: Entree
     {
-        public event ProgressChangedEventHandler PropertyChanged;
         private bool bread = true;
         /// <summary>
         /// If the pulled pork has bread

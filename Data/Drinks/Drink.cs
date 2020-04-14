@@ -17,7 +17,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of drink
         /// </summary>
-        public Size Size
+        public virtual Size Size
         {
             get
             {

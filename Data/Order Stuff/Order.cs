@@ -36,7 +36,7 @@ namespace CowboyCafe.Data
         public IEnumerable<IOrderItem> Items => items.ToArray();
         
         /// <summary>
-        /// 
+        /// gets the subtotal
         /// </summary>
         public double Subtotal { 
             get {
@@ -49,9 +49,14 @@ namespace CowboyCafe.Data
             } 
         }
 
+        /// <summary>
+        /// gets the actual total
+        /// </summary>
+        public double Total { get { return Subtotal * 1.0016; } }
+
         private uint ordernum;
         /// <summary>
-        /// 
+        /// gets the order number
         /// </summary>
         public uint OrderNumber 
         { 
@@ -65,7 +70,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// 
+        /// Adds item to order
         /// </summary>
         /// <param name="item"></param>
         public void Add(IOrderItem item)
@@ -81,7 +86,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// 
+        /// Removes item from order
         /// </summary>
         /// <param name="item"></param>
         public void Remove(IOrderItem item)
@@ -95,7 +100,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
-        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        public void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             if (e.PropertyName == "Price")

@@ -14,7 +14,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class JerkedSoda : Drink
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         
         private bool ice = true;
         /// <summary>

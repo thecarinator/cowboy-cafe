@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -24,9 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
-        
+         CashDrawer cd = new CashDrawer();
         public OrderControl()
-        {
+        { 
             InitializeComponent();
             this.DataContext = new Order();
             CancelOrderButton.Click += OnCancelOrderButton_Clicked;
@@ -52,8 +53,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnCompleteOrderButton_Clicked(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
-            Container.Child = new MenuItemSelectionControl();
+            var ord = this.DataContext as Order;
+            var items = ord.Items as IOrderItem[];
+            if (items.Length != 0)
+            {
+                var main = this.FindAncestor<MainWindow>();
+                main.Container.Child = new TransactionControl(cd);
+                this.DataContext = new Order();
+            }
         }
 
         /// <summary>

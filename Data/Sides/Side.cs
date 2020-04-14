@@ -64,7 +64,7 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool islarge;
+        
         /// <summary>
         /// Checks if the side is a large
         /// </summary>
