@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="950">
+             d:DesignHeight="606" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="756"/>
+            <ColumnDefinition Width="707"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid>
@@ -27,29 +27,31 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Border Background="Black" Grid.Column="6">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontWeight="Bold"  Foreground="White" Text="MONEY" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                        <TextBlock Grid.Row="1" Text="PLEASE!" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="25"/>
+                    </Grid> 
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" Padding="5" Grid.Column="0">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Pennies" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Pennies}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Name="IncreasePennies" Click="ButtClick" Content="+" FontSize ="30"/>
+                            <Button Name="DecreasePennies" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -58,22 +60,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Nickels" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Nickels}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseNickels" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseNickels" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -82,22 +79,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Dimes" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Dimes}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseDimes" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseDimes" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -106,22 +98,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Quarters" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Quarters}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseQuarters" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseQuarters" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -130,22 +117,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Half Dollars" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Text="Half Dollars" FontSize="17" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=HalfDollars}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseHalfDollars" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseHalfDollars" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -154,22 +136,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Dollars" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Dollars}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseDollars" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseDollars" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -189,22 +166,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Ones" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Ones}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseOnes" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseOnes" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -213,22 +185,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Twos" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Twos}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseTwos" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseTwos" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -237,22 +204,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Fives" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Fives}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseFives" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseFives" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -261,22 +223,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Tens" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Tens}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseTens" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseTens" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -285,22 +242,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Twenties" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Twenties}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseTwenties" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseTwenties" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -309,22 +261,17 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Fifties" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Fifties}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="ButtClick" Name="IncreaseFifties" Content="+" FontSize ="30"/>
+                            <Button Name="DecreaseFifties" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -333,25 +280,73 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Hundreds" FontSize="20" HorizontalAlignment="Center"/>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="108"/>
-                            </Grid.RowDefinitions>
-                            <TextBox IsReadOnly="true"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button Content="+" FontSize ="30"/>
-                                <Button Grid.Column="1" Content="-" FontSize="30"/>
-                            </Grid>
+                        <TextBlock Grid.Row ="1" Text="{Binding Path=Hundreds}" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="20"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Name="IncreaseHundreds" Content="+" FontSize ="30" Click="ButtClick"/>
+                            <Button Name="DecreaseHundreds" Grid.Column="1" Content="-" FontSize="30" Click="ButtClick"/>
                         </Grid>
                     </Grid>
                 </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock x:Name="OrderNum"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox Name="OrderList"/>
+                    <ListBox Grid.Column="1" Name="PriceBox" HorizontalContentAlignment="Right"/>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <StackPanel>
+                    <Grid>
+                        <TextBlock Text="Subtotal" FontSize="20"/>
+                        <TextBlock Text="{Binding Path=Subtotal, StringFormat=C}" FontSize="20" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Tax" FontSize="20"/>
+                        <TextBlock Text="{Binding Path=Tax, StringFormat=C}" FontSize="20" HorizontalAlignment="Right"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom">
+                    <Grid>
+                        <TextBlock Text="Total Paid" FontSize="20"/>
+                        <TextBlock Text="{Binding Path=Paid, StringFormat=C}" FontSize="20" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Total Remaining" FontSize="20"/>
+                        <TextBlock Text="{Binding Path=LeftToPay, StringFormat=C}" FontSize="20" HorizontalAlignment="Right"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Total" FontSize="20"/>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{Binding Path=Total, StringFormat=C}" FontSize="20"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Content="Pay With Cash" Name="CashPay" Click="ButtClick"/>
+                <Button Grid.Row="1" Content="Pay With Card" Name="CardPay" Click="ButtClick"/>
+                <Button Grid.Row="2" Content="Cancel Payment" Name="CancelPay" Click="ButtClick"/>
             </Grid>
         </Grid>
     </Grid>

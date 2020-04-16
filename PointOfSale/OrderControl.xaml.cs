@@ -53,13 +53,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnCompleteOrderButton_Clicked(object sender, RoutedEventArgs e)
         {
-            var ord = this.DataContext as Order;
-            var items = ord.Items as IOrderItem[];
+            var ord = DataContext as Order;
+            IOrderItem[] items = ord.Items as IOrderItem[];
             if (items.Length != 0)
             {
                 var main = this.FindAncestor<MainWindow>();
-                main.Container.Child = new TransactionControl(cd);
-                this.DataContext = new Order();
+                main.Container.Child = new TransactionControl(cd, this);
             }
         }
 
