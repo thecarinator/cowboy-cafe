@@ -30,6 +30,8 @@ namespace PointOfSale
         public double Subtotal { get; set; }
         public double Tax { get; set; }
         public double Total { get; set; }
+        private double change;
+        public double Change { get { return Math.Round(change, 2); } set { change = Math.Abs(value); } }
         public TransactionControl(CashDrawer dc, OrderControl co)
         {
             DataContext = this;
@@ -42,11 +44,11 @@ namespace PointOfSale
             Total = Math.Round(ord.Total, 2);
             CashPay.IsEnabled = false;
             LeftToPay = Total;
-            foreach(IOrderItem i in ord.Items)
+            foreach (IOrderItem i in ord.Items)
             {
                 OrderList.Items.Add(i.ToString());
                 PriceBox.Items.Add(i.Price.ToString("C2"));
-                foreach(string s in i.SpecialInstructions)
+                foreach (string s in i.SpecialInstructions)
                 {
                     OrderList.Items.Add(s);
                     PriceBox.Items.Add("");
@@ -56,9 +58,8 @@ namespace PointOfSale
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
         }
- 
+
         public int Pennies { get; set; }
         public int Nickels { get; set; }
         public int Dimes { get; set; }
@@ -75,49 +76,85 @@ namespace PointOfSale
         public double Paid { get; set; }
         public double LeftToPay { get; set; }
 
-        private void ChangeOfProperty(string propertyName)
+        private void ChangeOfProperty(string propertyName, int inOrDe, double amount)
         {
             switch (propertyName)
             {
                 case "Pennies":
+                    if (inOrDe == 0) Pennies++;
+                    else Pennies--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pennies"));
                     break;
                 case "Nickels":
+                    if (inOrDe == 0) Nickels++;
+                    else Nickels--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Nickels"));
                     break;
                 case "Dimes":
+                    if (inOrDe == 0) Dimes++;
+                    else Dimes--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Dimes"));
                     break;
                 case "Quarters":
+                    if (inOrDe == 0) Nickels++;
+                    else Nickels--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Quarters"));
                     break;
                 case "HalfDollars":
+                    if (inOrDe == 0) HalfDollars++;
+                    else HalfDollars--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HalfDollars"));
                     break;
                 case "Dollars":
+                    if (inOrDe == 0) Dollars++;
+                    else Dollars--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Dollars"));
                     break;
                 case "Ones":
+                    if (inOrDe == 0) Ones++;
+                    else Ones--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ones"));
                     break;
                 case "Twos":
+                    if (inOrDe == 0) Twos++;
+                    else Twos--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Twos"));
                     break;
                 case "Fives":
+                    if (inOrDe == 0) Fives++;
+                    else Fives--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fives"));
                     break;
                 case "Tens":
+                    if (inOrDe == 0) Tens++;
+                    else Tens--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tens"));
                     break;
                 case "Twenties":
+                    if (inOrDe == 0) Twenties++;
+                    else Twenties--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Twenties"));
                     break;
                 case "Fifties":
+                    if (inOrDe == 0) Fifties++;
+                    else Fifties--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fifties"));
                     break;
                 case "Hundreds":
+                    if (inOrDe == 0) Hundreds++;
+                    else Hundreds--;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Hundreds"));
                     break;
+            }
+            if (inOrDe == 0)
+            {
+                Paid += amount;
+                LeftToPay -= amount;
+            }
+            else
+            {
+                Paid -= amount;
+                LeftToPay += amount;
             }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Paid"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LeftToPay"));
@@ -128,199 +165,82 @@ namespace PointOfSale
             switch (((Button)sender).Name)
             {
                 case "IncreasePennies":
-                    Pennies++;
-                    Paid += 0.01;
-                    LeftToPay -= 0.01;
-                    ChangeOfProperty("Pennies");
+                    ChangeOfProperty("Pennies", 0, .01);
                     break;
                 case "IncreaseNickels":
-                    Nickels++;
-                    Paid += 0.05;
-                    LeftToPay -= 0.05;
-                    ChangeOfProperty("Nickels");
+                    ChangeOfProperty("Nickels", 0, .05);
                     break;
                 case "IncreaseDimes":
-                    Dimes++;
-                    Paid += 0.10;
-                    LeftToPay -= 0.10;
-                    ChangeOfProperty("Dimes");
+                    ChangeOfProperty("Dimes", 0, .1);
                     break;
                 case "IncreaseQuarters":
-                    Quarters++;
-                    Paid += 0.25;
-                    LeftToPay -= 0.25;
-                    ChangeOfProperty("Quarters");
+                    ChangeOfProperty("Quarters", 0, .25);
                     break;
                 case "IncreaseHalfDollars":
-                    HalfDollars++;
-                    Paid += 0.50;
-                    LeftToPay -= 0.50;
-                    ChangeOfProperty("HalfDollars");
+                    ChangeOfProperty("HalfDollars", 0, .5);
                     break;
                 case "IncreaseDollars":
-                    Dollars++;
-                    Paid += 1.00;
-                    LeftToPay -= 1.00;
-                    ChangeOfProperty("Dollars");
+                    ChangeOfProperty("Dollars", 0, 1);
                     break;
                 case "IncreaseOnes":
-                    Ones++;
-                    Paid += 1.00;
-                    LeftToPay -= 1.00;
-                    ChangeOfProperty("Ones");
+                    ChangeOfProperty("Ones", 0, 1);
                     break;
                 case "IncreaseTwos":
-                    Twos++;
-                    Paid += 2;
-                    LeftToPay -= 2;
-                    ChangeOfProperty("Twos");
+                    ChangeOfProperty("Twos", 0, 2);
                     break;
                 case "IncreaseFives":
-                    Fives++;
-                    Paid += 5;
-                    LeftToPay -= 5;
-                    ChangeOfProperty("Fives");
+                    ChangeOfProperty("Fives", 0, 5);
                     break;
                 case "IncreaseTens":
-                    Tens++;
-                    Paid += 10;
-                    LeftToPay -= 10;
-                    ChangeOfProperty("Tens");
+                    ChangeOfProperty("Tens", 0, 10);
                     break;
                 case "IncreaseTwenties":
-                    Twenties++;
-                    Paid += 20;
-                    LeftToPay -= 20;
-                    ChangeOfProperty("Twenties");
+                    ChangeOfProperty("Twenties", 0, 20);
                     break;
                 case "IncreaseFifties":
-                    Fifties++;
-                    Paid += 50;
-                    LeftToPay -= 50;
-                    ChangeOfProperty("Fifties");
+                    ChangeOfProperty("Fifties", 0, 50);
                     break;
                 case "IncreaseHundreds":
-                    Hundreds++;
-                    Paid += 100;
-                    LeftToPay -= 100;
-                    ChangeOfProperty("Hundreds");
+                    ChangeOfProperty("Hundreds", 0 , 100);
                     break;
                 case "DecreasePennies":
-                    if (Pennies != 0)
-                    {
-                        Pennies--;
-                        Paid -= 0.01;
-                        LeftToPay += 0.01;
-                        ChangeOfProperty("Pennies");
-                    }
+                    if (Pennies != 0) ChangeOfProperty("Pennies", 1, .01);
                     break;
                 case "DecreaseNickels":
-                    if (Nickels != 0)
-                    {
-                        Nickels--;
-                        Paid -= 0.05;
-                        LeftToPay += 0.05;
-                        ChangeOfProperty("Nickels");
-                    }
+                    if (Nickels != 0) ChangeOfProperty("Nickels", 1, .05);
                     break;
                 case "DecreaseDimes":
-                    if (Dimes != 0)
-                    {
-                        Dimes--;
-                        Paid -= 0.10;
-                        LeftToPay += 0.10;
-                        ChangeOfProperty("Dimes");
-                    }
+                    if (Dimes != 0) ChangeOfProperty("Dimes", 1, .1);
                     break;
                 case "DecreaseQuarters":
-                    if (Quarters != 0)
-                    {
-                        Quarters--;
-                        Paid -= 0.25;
-                        LeftToPay += 0.25;
-                        ChangeOfProperty("Quarters");
-                    }
+                    if (Quarters != 0) ChangeOfProperty("Quarters", 1, .25);
                     break;
                 case "DecreaseHalfDollars":
-                    if (HalfDollars != 0)
-                    {
-                        HalfDollars--;
-                        Paid -= 0.50;
-                        LeftToPay += 0.50;
-                        ChangeOfProperty("HalfDollars");
-                    }
+                    if (HalfDollars != 0) ChangeOfProperty("HalfDollars", 1, .5);
                     break;
                 case "DecreaseDollars":
-                    if (Dollars != 0)
-                    {
-                        Dollars--;
-                        Paid -= 1;
-                        LeftToPay += 1;
-                        ChangeOfProperty("Dollars");
-                    }
+                    if (Dollars != 0) ChangeOfProperty("Dollars", 1, 1);
                     break;
                 case "DecreaseOnes":
-                    if (Ones != 0)
-                    {
-                        Ones--;
-                        Paid -= 1;
-                        LeftToPay += 1;
-                        ChangeOfProperty("Ones");
-                    }
+                    if (Ones != 0) ChangeOfProperty("Ones", 1, 1);
                     break;
                 case "DecreaseTwos":
-                    if (Twos != 0)
-                    {
-                        Twos--;
-                        Paid -= 2;
-                        LeftToPay += 2;
-                        ChangeOfProperty("Twos");
-                    }
+                    if (Twos != 0) ChangeOfProperty("Twos", 1, 2);
                     break;
                 case "DecreaseFives":
-                    if (Fives != 0)
-                    {
-                        Fives--;
-                        Paid -= 5;
-                        LeftToPay += 5;
-                        ChangeOfProperty("Fives");
-                    }
+                    if (Fives != 0) ChangeOfProperty("Fives", 1, 5);
                     break;
                 case "DecreaseTens":
-                    if (Tens != 0)
-                    {
-                        Tens--;
-                        Paid -= 10;
-                        LeftToPay += 10;
-                        ChangeOfProperty("Tens");
-                    }
+                    if (Tens != 0) ChangeOfProperty("Tens", 1, 10);
                     break;
                 case "DecreaseTwenties":
-                    if (Twenties != 0)
-                    {
-                        Twenties--;
-                        Paid -= 20;
-                        LeftToPay += 20;
-                        ChangeOfProperty("Twenties");
-                    }
+                    if (Twenties != 0) ChangeOfProperty("Twenties", 1, 20);
                     break;
                 case "DecreaseFifties":
-                    if (Fifties != 0)
-                    {
-                        Fifties--;
-                        Paid -= 50;
-                        LeftToPay += 50;
-                        ChangeOfProperty("Fifties");
-                    }
+                    if (Fifties != 0) ChangeOfProperty("Fifties", 1, 50);
                     break;
                 case "DecreaseHundreds":
-                    if (Hundreds != 0)
-                    {
-                        Hundreds--;
-                        Paid -= 100;
-                        LeftToPay += 100;
-                        ChangeOfProperty("Hundreds");
-                    }
+                    if (Hundreds != 0) ChangeOfProperty("Hundreds", 1, 100);
                     break;
                 case "CancelPay":
                     NewOrder();
@@ -329,64 +249,157 @@ namespace PointOfSale
                     NewOrder();
                     break;
                 case "CashPay":
-                    foreach(Coins c in Enum.GetValues(typeof(Coins)) as Coins[])
+                    foreach (Coins c in Enum.GetValues(typeof(Coins)) as Coins[])
                     {
-                        int n = 0;
                         switch (c)
                         {
                             case Coins.Penny:
-                                n = Pennies;
+                                cd.AddCoin(c, Pennies);
                                 break;
                             case Coins.Nickel:
-                                n = Nickels;
+                                cd.AddCoin(c, Nickels);
                                 break;
                             case Coins.Dime:
-                                n = Dimes;
+                                cd.AddCoin(c, Dimes);
                                 break;
                             case Coins.Quarter:
-                                n = Quarters;
+                                cd.AddCoin(c, Quarters);
                                 break;
                             case Coins.HalfDollar:
-                                n = HalfDollars;
+                                cd.AddCoin(c, HalfDollars);
                                 break;
                             case Coins.Dollar:
-                                n = Dollars;
+                                cd.AddCoin(c, Dollars);
                                 break;
                         }
-                        cd.AddCoin(c, n);
                     }
                     foreach (Bills c in Enum.GetValues(typeof(Bills)) as Bills[])
                     {
-                        int n = 0;
                         switch (c)
                         {
                             case Bills.One:
-                                n = Ones;
+                                cd.AddBill(c, Ones);
                                 break;
                             case Bills.Two:
-                                n = Twos;
+                                cd.AddBill(c, Twos);
                                 break;
                             case Bills.Five:
-                                n = Fives;
+                                cd.AddBill(c, Fives);
                                 break;
                             case Bills.Ten:
-                                n = Tens;
+                                cd.AddBill(c, Tens);
                                 break;
                             case Bills.Twenty:
-                                n = Twenties;
+                                cd.AddBill(c, Twenties);
                                 break;
                             case Bills.Fifty:
-                                n = Fifties;
+                                cd.AddBill(c, Fifties);
                                 break;
                             case Bills.Hundred:
-                                n = Hundreds;
+                                cd.AddBill(c, Hundreds);
                                 break;
                         }
-                        cd.AddBill(c, n);
                     }
                     if (LeftToPay < 0)
                     {
+                        Change = LeftToPay;
+                        double ch = Change;
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Change"));
+                        var changeC = new List<Coins>();
+                        var changeB = new List<Bills>();
+                        var c = Enum.GetValues(typeof(Coins)) as Coins[];
+                        var b = Enum.GetValues(typeof(Bills)) as Bills[];
+                        Array.Reverse(c);
+                        Array.Reverse(b);
+                        int bi = 0;
+                        double v = Math.Round(0.0, 2);
+                        foreach (Bills i in b)
+                        {
+                            
+                            switch (i)
+                            {
+                                case Bills.One:
+                                    bi = cd.Ones;
+                                    v = 1;
+                                    break;
+                                case Bills.Two:
+                                    bi = cd.Twos;
+                                    v = 2;
+                                    break;
+                                case Bills.Five:
+                                    bi = cd.Fives;
+                                    v = 5;
+                                    break;
+                                case Bills.Ten:
+                                    bi = cd.Tens;
+                                    v = 10;
+                                    break;
+                                case Bills.Twenty:
+                                    bi = cd.Twenties;
+                                    v = 20;
+                                    break;
+                                case Bills.Fifty:
+                                    bi = cd.Fifties;
+                                    v = 50;
+                                    break;
+                                case Bills.Hundred:
+                                    bi = cd.Hundreds;
+                                    v = 100;
+                                    break;
+                            }
+                            while (ch - v >= 0)
+                            {
+                                if (bi == 0)
+                                {
 
+                                }
+                                ch -= v;
+                                cd.RemoveBill(i, 1);
+                                changeB.Add(i);
+                                bi -= 1;
+                            }
+                        }
+                        foreach(Coins i in c)
+                        {
+                            switch (i)
+                            {
+                                case Coins.Penny:
+                                    bi = cd.Pennies;
+                                    v = 0.01;
+                                    break;
+                                case Coins.Nickel:
+                                    bi = cd.Nickels;
+                                    v = 0.05;
+                                    break;
+                                case Coins.Dime:
+                                    bi = cd.Dimes;
+                                    v = 0.10;
+                                    break;
+                                case Coins.Quarter:
+                                    bi = cd.Quarters;
+                                    v = 0.25;
+                                    break;
+                                case Coins.HalfDollar:
+                                    bi = cd.HalfDollars;
+                                    v = 0.50;
+                                    break;
+                                case Coins.Dollar:
+                                    bi = cd.Dollars;
+                                    v = 1.00;
+                                    break;
+                            }
+                            while (ch - v >= 0)
+                            {
+                                if (bi == 0)
+                                {
+
+                                }
+                                ch -= v;
+                                cd.RemoveCoin(i, 1);
+                                changeC.Add(i);
+                                bi -= 1;
+                            }
+                        }
                     }
                     NewOrder();
                     break;
@@ -396,7 +409,6 @@ namespace PointOfSale
             if (Paid != 0) CardPay.IsEnabled = false;
             else CardPay.IsEnabled = true;
         }
-
         private void NewOrder()
         {
             var main = this.FindAncestor<MainWindow>();
@@ -406,3 +418,4 @@ namespace PointOfSale
         }
     }
 }
+
