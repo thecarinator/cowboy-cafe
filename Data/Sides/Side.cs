@@ -88,6 +88,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
+        /// <summary>
+        /// gets empty list
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -96,6 +99,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Event of property change
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

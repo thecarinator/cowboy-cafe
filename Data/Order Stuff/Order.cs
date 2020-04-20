@@ -1,6 +1,6 @@
 ﻿/* Author: Cari Miller
  * Class: Order.cs
- * Purpose:
+ * Purpose: Creates an order
  */
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.ComponentModel;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// 
+    /// Order
     /// </summary>
     public class Order: INotifyPropertyChanged
     {
@@ -21,17 +21,17 @@ namespace CowboyCafe.Data
         }
         
         /// <summary>
-        /// 
+        /// Event of Property changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// 
+        /// List of order items
         /// </summary>
         private List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
-        /// 
+        /// gets list of order items
         /// </summary>
         public IEnumerable<IOrderItem> Items => items.ToArray();
         
@@ -50,10 +50,13 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// gets the actual total
+        /// Gets the tax
         /// </summary>
-        public double Tax { get { return Subtotal *.16; } }
-
+        public double Tax { get { return Math.Round(Subtotal *.16, 2); } }
+        
+        /// <summary>
+        /// gets the total with tax
+        /// </summary>
         public double Total { get { return Subtotal + Tax; } }
         
 
@@ -107,6 +110,11 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
+        /// <summary>
+        /// Property changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));

@@ -54,6 +54,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Checks if soda is cream soda
+        /// </summary>
         public bool IsCreamSoda
         {
             get { return Flavor == SodaFlavor.CreamSoda; }
@@ -64,6 +67,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Checks if soda is orange soda
+        /// </summary>
         public bool IsOrangeSoda
         {
             get { return Flavor == SodaFlavor.OrangeSoda; }
@@ -73,6 +79,10 @@ namespace CowboyCafe.Data
                 Flavor = SodaFlavor.OrangeSoda;
             }
         }
+
+        /// <summary>
+        /// Checks if soda is sarsparilla
+        /// </summary>
         public bool IsSarsparilla
         {
             get { return Flavor == SodaFlavor.Sarsparilla; }
@@ -83,6 +93,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Checks if soda is birch beer
+        /// </summary>
         public bool IsBirchBeer
         {
             get { return Flavor == SodaFlavor.BirchBeer; }
@@ -93,6 +106,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Checks if soda is root beer
+        /// </summary>
         public bool IsRootBeer
         {
             get { return Flavor == SodaFlavor.RootBeer; }
@@ -160,10 +176,14 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
+
+        /// <summary>
+        /// Event of Property Change
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// 
+        /// Property Changes
         /// </summary>
         /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChange(string propertyName)

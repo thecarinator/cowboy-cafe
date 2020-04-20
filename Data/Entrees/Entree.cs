@@ -30,7 +30,15 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// Event of property change
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+        
+        /// <summary>
+        /// Property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

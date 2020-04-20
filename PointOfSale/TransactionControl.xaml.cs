@@ -15,6 +15,7 @@ using CowboyCafe.Data;
 using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Pkcs;
+using System.Windows.Automation.Peers;
 
 namespace PointOfSale
 {
@@ -30,6 +31,8 @@ namespace PointOfSale
         public double Subtotal { get; set; }
         public double Tax { get; set; }
         public double Total { get; set; }
+        public IEnumerable<IOrderItem> Items { get; set; }
+        public uint OrderNumber { get; set; }
         private double change;
         public double Change { get { return Math.Round(change, 2); } set { change = Math.Abs(value); } }
         public TransactionControl(CashDrawer dc, OrderControl co)
@@ -40,11 +43,13 @@ namespace PointOfSale
             oc = co;
             ord = oc.DataContext as Order;
             Subtotal = ord.Subtotal;
-            Tax = Math.Round(ord.Tax, 2);
-            Total = Math.Round(ord.Total, 2);
+            Tax = ord.Tax;
+            Total = ord.Total;
             CashPay.IsEnabled = false;
             LeftToPay = Total;
-            foreach (IOrderItem i in ord.Items)
+            Items = ord.Items;
+            OrderNumber = ord.OrderNumber;
+            foreach (IOrderItem i in Items)
             {
                 OrderList.Items.Add(i.ToString());
                 PriceBox.Items.Add(i.Price.ToString("C2"));
@@ -54,10 +59,13 @@ namespace PointOfSale
                     PriceBox.Items.Add("");
                 }
             }
-            OrderNum.Text = "Order# " + ord.OrderNumber.ToString();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LeftToPay"));
+
         }
 
         public int Pennies { get; set; }
@@ -161,7 +169,6 @@ namespace PointOfSale
         }
         private void ButtClick(object sender, RoutedEventArgs e)
         {
-            CardTerminal ct = new CardTerminal();
             switch (((Button)sender).Name)
             {
                 case "IncreasePennies":
@@ -246,7 +253,36 @@ namespace PointOfSale
                     NewOrder();
                     break;
                 case "CardPay":
-                    NewOrder();
+                    CardTerminal ct = new CardTerminal();
+                    ResultCode r = ct.ProcessTransaction(Total);
+                    switch (r)
+                    {
+                        case ResultCode.Success:
+                            Paid = Total;
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Paid"));
+                            Receipt(1);
+                            break;
+                        case ResultCode.InsufficentFunds:
+                            MessageBox.Show("Error: Card has insufficient funds\n\nTry different card or pay with cash.");
+                            Error.Text = "Error: Card has insufficient";
+                            ExtError.Text = "funds";
+                            break;
+                        case ResultCode.CancelledCard:
+                            MessageBox.Show("Error: Card cancelled\n\nTry different card or pay with cash.");
+                            Error.Text = "Error: Card cancelled";
+                            ExtError.Text = "";
+                            break;
+                        case ResultCode.ReadError:
+                            MessageBox.Show("Error: Bad swipe\n\nPlease try swiping again.");
+                            Error.Text = "Error: Bad swipe";
+                            ExtError.Text = "";
+                            break;
+                        case ResultCode.UnknownErrror:
+                            MessageBox.Show("Error: Unknown error\n\n Please try swiping again.");
+                            Error.Text = "Error: Unknown error";
+                            ExtError.Text = "";
+                            break;
+                    }
                     break;
                 case "CashPay":
                     foreach (Coins c in Enum.GetValues(typeof(Coins)) as Coins[])
@@ -401,7 +437,7 @@ namespace PointOfSale
                             }
                         }
                     }
-                    NewOrder();
+                    Receipt(0);
                     break;
             }
             if (LeftToPay <= 0) CashPay.IsEnabled = true;
@@ -415,6 +451,37 @@ namespace PointOfSale
             oc.DataContext = new Order();
             oc.Container.Child = new MenuItemSelectionControl();
             main.Container.Child = oc;
+        }
+
+        private void Receipt(int pay)
+        {
+            ReceiptPrinter r = new ReceiptPrinter();
+            StringBuilder sb = new StringBuilder();
+           
+            sb.Append("\t                   Cowboy Cafe\n    _________________________________________\n\nOrder #" + OrderNumber.ToString() + "\t\t\t" + DateTime.Now + "\n\n");
+            foreach(IOrderItem i in Items)
+            {
+                sb.Append(i.ToString() + "\t\t " + i.Price.ToString("C2"));
+                foreach(string st in i.SpecialInstructions)
+                {
+                    sb.Append("\n\t" + st);
+                }
+                sb.Append("\n");
+            }
+            sb.Append("\nSubtotal: " + Subtotal.ToString("C2") + "\nTax: \t " + Tax.ToString("C2") + "\nTotal:  \t " + Total.ToString("C2") + "\n");
+            if (pay == 0)
+            {
+                sb.Append("\nPaid: \t" + Paid.ToString("C2"));
+            }
+            else sb.Append("\nCredit: \t " + Paid.ToString("C2"));
+            sb.Append("\nChange: \t " + Change.ToString("C2"));
+            string s = sb.ToString();
+            MessageBox.Show(s);
+            r.Print(s);
+            sb = new StringBuilder();
+            s = "Contents of the Cash Drawer\n\n____________________________\n            Coins\n____________________________\n\nPennies: " + cd.Pennies + "\nNickels: " + cd.Nickels + "\nDimes: " + cd.Dimes + "\nQuarters: " + cd.Quarters + "\nHalf Dollars: " + cd.HalfDollars + "\nDollars: " + cd.Dollars + "\n\n____________________________\n             Bills\n____________________________\n\nOnes: " + cd.Ones + "\nTwos: " + cd.Twos + "\nFives: " + cd.Fives + "\nTens: " + cd.Tens + "\nTwenties: " + cd.Twenties + "\nFifties: " + cd.Fifties + "\nHundreds: " + cd.Hundreds + "\n\n____________________________\nCash Drawer Total: " + cd.TotalValue.ToString("C2") + "\n____________________________\n";
+            MessageBox.Show(s);
+            NewOrder();
         }
     }
 }
