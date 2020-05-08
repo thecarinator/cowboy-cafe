@@ -32,13 +32,43 @@ namespace PointOfSale
         private CashDrawer cd;
         private OrderControl oc;
         private Order ord;
+
+        /// <summary>
+        /// The total without tax
+        /// </summary>
         public double Subtotal { get; set; }
+
+        /// <summary>
+        /// The tax
+        /// </summary>
         public double Tax { get; set; }
+
+        /// <summary>
+        /// The total with tax 
+        /// </summary>
         public double Total { get; set; }
+
+        /// <summary>
+        /// The list of items on the order
+        /// </summary>
         public IEnumerable<IOrderItem> Items { get; set; }
+
+        /// <summary>
+        /// The order number
+        /// </summary>
         public uint OrderNumber { get; set; }
         private double change;
+
+        /// <summary>
+        /// The amount of change that needs to be given
+        /// </summary>
         public double Change { get { return Math.Abs(change); } set { change = value; } }
+
+        /// <summary>
+        /// Sets up the transaction control
+        /// </summary>
+        /// <param name="dc"></param>
+        /// <param name="co"></param>
         public TransactionControl(CashDrawer dc, OrderControl co)
         {
             DataContext = this;
@@ -72,6 +102,9 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// The coins and bills that potentially been collected
+        /// </summary>
         public int Pennies { get; set; }
         public int Nickels { get; set; }
         public int Dimes { get; set; }
@@ -85,9 +118,23 @@ namespace PointOfSale
         public int Twenties { get; set; }
         public int Fifties { get; set; }
         public int Hundreds { get; set; }
+
+        /// <summary>
+        /// Amount of money that has been paid
+        /// </summary>
         public double Paid { get; set; }
+
+        /// <summary>
+        /// The amount of money left to be paid
+        /// </summary>
         public double LeftToPay { get; set; }
 
+        /// <summary>
+        /// Handles the propery changes for when money is added or subtracted
+        /// </summary>
+        /// <param name="propertyName">property being changed</param>
+        /// <param name="inOrDe">Whether or not the the money is being added or subtracted </param>
+        /// <param name="amount">The amount of money</param>
         private void ChangeOfProperty(string propertyName, int inOrDe, double amount)
         {
             switch (propertyName)
@@ -171,6 +218,12 @@ namespace PointOfSale
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Paid"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LeftToPay"));
         }
+
+        /// <summary>
+        /// Handles every single button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtClick(object sender, RoutedEventArgs e)
         {
             switch (((Button)sender).Name)
@@ -620,6 +673,10 @@ namespace PointOfSale
             if (Paid != 0) CardPay.IsEnabled = false;
             else CardPay.IsEnabled = true;
         }
+        
+        /// <summary>
+        /// Creates a new order and switches screen
+        /// </summary>
         private void NewOrder()
         {
             var main = this.FindAncestor<MainWindow>();
@@ -628,6 +685,10 @@ namespace PointOfSale
             main.Container.Child = oc;
         }
 
+        /// <summary>
+        /// Prints receipt
+        /// </summary>
+        /// <param name="pay"> number that represents the method of payment</param>
         private void Receipt(int pay)
         {
             ReceiptPrinter r = new ReceiptPrinter();
@@ -658,6 +719,10 @@ namespace PointOfSale
             NewOrder();
         }
 
+        /// <summary>
+        /// Breaks down the bills to make change
+        /// </summary>
+        /// <param name="b">The bill to be broken</param>
         private void BreakBills(Bills b)
         {
             int bi = 0;

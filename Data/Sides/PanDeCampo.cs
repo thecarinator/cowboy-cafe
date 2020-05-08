@@ -14,7 +14,15 @@ namespace CowboyCafe.Data
     public class PanDeCampo: Side
     {
 
+        /// <summary>
+        /// Default Pan de Campo
+        /// </summary>
         public PanDeCampo() { }
+
+        /// <summary>
+        /// Not default Pan de Campo
+        /// </summary>
+        /// <param name="size">What size it is</param>
         public PanDeCampo(Size size) { Size = size; }
         /// <summary>
         /// the price of the pan de campo

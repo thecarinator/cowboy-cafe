@@ -15,8 +15,15 @@ namespace CowboyCafe.Data
     /// </summary>
     public class BakedBeans: Side
     {
+        /// <summary>
+        /// Default baked beans
+        /// </summary>
         public BakedBeans() { }
 
+        /// <summary>
+        /// Not default baked beans
+        /// </summary>
+        /// <param name="size">what size they are</param>
         public BakedBeans(Size size) { Size = size; }
         /// <summary>
         /// Price of the baked beans

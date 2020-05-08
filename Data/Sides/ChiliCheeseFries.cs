@@ -22,7 +22,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Not default chili chese fries
         /// </summary>
-        /// <param name="size"></param>
+        /// <param name="size">What size they are</param>
         public ChiliCheeseFries(Size size) { Size = size; }
         /// <summary>
         /// Price of the chili cheese fries

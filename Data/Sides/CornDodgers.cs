@@ -14,7 +14,14 @@ namespace CowboyCafe.Data
     /// </summary>
     public class CornDodgers: Side
     {
+        /// <summary>
+        /// Default Corn Dodgers
+        /// </summary>
         public CornDodgers() { }
+        /// <summary>
+        /// Not default corn dodgers
+        /// </summary>
+        /// <param name="size"></param>
         public CornDodgers(Size size) { Size = size; }
         /// <summary>
         /// Price of the corn dodgers
