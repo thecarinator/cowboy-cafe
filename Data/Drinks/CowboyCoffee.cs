@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace CowboyCafe.Data
 {
@@ -14,6 +15,22 @@ namespace CowboyCafe.Data
     public class CowboyCoffee : Drink
     {
         private bool decaf = false;
+        /// <summary>
+        /// Default Cowboy coffee
+        /// </summary>
+        public CowboyCoffee() { }
+
+        /// <summary>
+        /// Not Default coffee
+        /// </summary>
+        /// <param name="size">what size coffee</param>
+        /// <param name="d">whether or not it is decaf</param>
+        public CowboyCoffee(Size size, bool d) 
+        { 
+            Size = size;
+            decaf = d;
+        }
+        
         /// <summary>
         /// If the coffee is decaf
         /// </summary>

@@ -12,7 +12,12 @@ namespace CowboyCafe.DataTests
         class MockOrderItem: IOrderItem
         {
             public double Price { get; set; }
+
             public List<string> SpecialInstructions { get; }
+
+            public string ItemName => throw new NotImplementedException();
+
+            public uint Calories => throw new NotImplementedException();
         }
         // Adding something to the order should
         // have it appear in the Items property

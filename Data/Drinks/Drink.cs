@@ -13,6 +13,10 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Gets the The name of the item
+        /// </summary>
+        public string ItemName => ToString();
         private Size size;
         /// <summary>
         /// Gets the size of drink
@@ -38,7 +42,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Flavor of soda
         /// </summary>
-        public SodaFlavor Flavor
+        public virtual SodaFlavor Flavor
         {
             get { return flavor; }
             set
@@ -176,16 +180,15 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
-
         /// <summary>
         /// Event of Property Change
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Property Changes
+        /// Notifying of Property Changes
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">property being changed</param>
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

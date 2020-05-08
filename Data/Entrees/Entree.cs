@@ -16,6 +16,10 @@ namespace CowboyCafe.Data
     public abstract class Entree:IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// Gets the The name of the item
+        /// </summary>
+        public string ItemName => ToString();
+        /// <summary>
         /// gets the price of the entree
         /// </summary>
         public abstract double Price { get; }
@@ -36,9 +40,9 @@ namespace CowboyCafe.Data
         public event PropertyChangedEventHandler PropertyChanged;
         
         /// <summary>
-        /// Property changes
+        /// Notification of Property change
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">the property being changed</param>
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

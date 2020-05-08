@@ -15,6 +15,10 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Side: INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// Gets the The name of the item
+        /// </summary>
+        public string ItemName => ToString();
         private Size size = Size.Small;
         /// <summary>
         /// Gets the size of the side

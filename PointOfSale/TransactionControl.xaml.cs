@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cari Miller
+ * Class: TransactionControl.xaml.cs
+ * Purpose: Transaction window
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -34,7 +38,7 @@ namespace PointOfSale
         public IEnumerable<IOrderItem> Items { get; set; }
         public uint OrderNumber { get; set; }
         private double change;
-        public double Change { get { return Math.Round(change, 2); } set { change = Math.Abs(value); } }
+        public double Change { get { return Math.Abs(change); } set { change = value; } }
         public TransactionControl(CashDrawer dc, OrderControl co)
         {
             DataContext = this;
@@ -351,8 +355,8 @@ namespace PointOfSale
                         double v = Math.Round(0.0, 2);
                         foreach (Bills i in b)
                         {
-                            
-                            switch (i)
+                            Bills j = i;
+                            switch (j)
                             {
                                 case Bills.One:
                                     bi = cd.Ones;
@@ -361,6 +365,11 @@ namespace PointOfSale
                                 case Bills.Two:
                                     bi = cd.Twos;
                                     v = 2;
+                                    if (bi == 0)
+                                    {
+                                        j--;
+                                        goto case Bills.One;
+                                    }
                                     break;
                                 case Bills.Five:
                                     bi = cd.Fives;
@@ -385,19 +394,17 @@ namespace PointOfSale
                             }
                             while (ch - v >= 0)
                             {
-                                if (bi == 0)
-                                {
-
-                                }
+                                if (bi == 0) BreakBills(j);
                                 ch -= v;
-                                cd.RemoveBill(i, 1);
-                                changeB.Add(i);
-                                bi -= 1;
+                                cd.RemoveBill(j, 1);
+                                changeB.Add(j);
+                                bi--;
                             }
                         }
                         foreach(Coins i in c)
                         {
-                            switch (i)
+                            Coins j = i;
+                            switch (j)
                             {
                                 case Coins.Penny:
                                     bi = cd.Pennies;
@@ -418,24 +425,192 @@ namespace PointOfSale
                                 case Coins.HalfDollar:
                                     bi = cd.HalfDollars;
                                     v = 0.50;
+                                    if (bi == 0)
+                                    {
+                                        j--;
+                                        goto case Coins.Quarter;
+                                    }
                                     break;
                                 case Coins.Dollar:
                                     bi = cd.Dollars;
                                     v = 1.00;
+                                    if (bi == 0)
+                                    {
+                                        j--;
+                                        goto case Coins.HalfDollar;
+                                    }
                                     break;
                             }
                             while (ch - v >= 0)
                             {
                                 if (bi == 0)
                                 {
-
+                                    int be = 0;
+                                    Coins co = j + 1;
+                                    switch (co)
+                                    {
+                                        case Coins.Nickel:
+                                            be = cd.Nickels;
+                                            if (be == 0)
+                                            {
+                                                co++;
+                                                goto case Coins.Dime;
+                                            }
+                                            break;
+                                        case Coins.Dime:
+                                            be = cd.Dimes;
+                                            if (be == 0)
+                                            {
+                                                co++;
+                                                goto case Coins.Quarter;
+                                            }
+                                            break;
+                                        case Coins.Quarter:
+                                            be = cd.Quarters;
+                                            if (be == 0)
+                                            {
+                                                co++;
+                                                goto case Coins.HalfDollar;
+                                            }
+                                            break;
+                                        case Coins.HalfDollar:
+                                            be = cd.HalfDollars;
+                                            if (be == 0)
+                                            {
+                                                co++;
+                                                goto case Coins.Dollar;
+                                            }
+                                            break;
+                                        case Coins.Dollar:
+                                            be = cd.Dollars;
+                                            if (be == 0)
+                                            {
+                                                if (cd.Ones > 0)
+                                                {
+                                                    cd.RemoveBill(Bills.One, 1);
+                                                    cd.AddCoin(Coins.Dollar, 1);
+                                                }
+                                                else
+                                                {
+                                                    BreakBills(Bills.One);
+                                                    goto case Coins.Dollar;
+                                                }
+                                            }
+                                            break;
+                                        default:
+                                            new NotImplementedException();
+                                            break;
+                                    }
+                                    switch (co)
+                                    {
+                                        case Coins.Nickel:
+                                            cd.RemoveCoin(Coins.Nickel, 1);
+                                            cd.AddCoin(Coins.Penny, 5);
+                                            break;
+                                        case Coins.Dime:
+                                            cd.RemoveCoin(Coins.Dime, 1);
+                                            cd.AddCoin(Coins.Nickel, 2);
+                                            if (j == Coins.Nickel) break;
+                                            else goto case Coins.Nickel;
+                                        case Coins.Quarter:
+                                            cd.RemoveCoin(Coins.Quarter, 1);
+                                            cd.AddCoin(Coins.Dime, 2);
+                                            cd.AddCoin(Coins.Nickel, 1);
+                                            if (j == Coins.Dime) break;
+                                            else goto case Coins.Dime;
+                                        case Coins.HalfDollar:
+                                            cd.RemoveCoin(Coins.HalfDollar, 1);
+                                            cd.AddCoin(Coins.Quarter, 2);
+                                            if (j == Coins.Quarter) break;
+                                            else goto case Coins.Quarter;
+                                        case Coins.Dollar:
+                                            cd.RemoveCoin(Coins.Dollar, 1);
+                                            cd.AddCoin(Coins.Quarter, 4);
+                                            if (j == Coins.Quarter) break;
+                                            else goto case Coins.Quarter;
+                                        default:
+                                            new NotImplementedException();
+                                            break;
+                                    }
                                 }
                                 ch -= v;
-                                cd.RemoveCoin(i, 1);
-                                changeC.Add(i);
-                                bi -= 1;
+                                cd.RemoveCoin(j, 1);
+                                changeC.Add(j);
+                                bi--;
                             }
+                            
                         }
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append("Change to give back:\n\t");
+                        foreach(Bills bill in changeB)
+                        {
+                            sb.Append(bill.ToString() + "\n\t");
+                        }
+                        foreach(Coins coin in changeC)
+                        {
+                            sb.Append(coin.ToString() +"\n\t");
+                        }
+                        MessageBox.Show(sb.ToString());
+                    }
+                    while (cd.Pennies >= 105)
+                    {
+                        cd.RemoveCoin(Coins.Penny, 5);
+                        cd.AddCoin(Coins.Nickel, 1);
+                    }
+                    while (cd.Nickels >= 82)
+                    {
+                        cd.RemoveCoin(Coins.Nickel, 2);
+                        cd.AddCoin(Coins.Dime, 1);
+                    }
+                    while (cd.Dimes >= 105)
+                    {
+                        cd.RemoveCoin(Coins.Dime, 5);
+                        cd.AddCoin(Coins.Quarter, 2);
+                    }
+                    while (cd.Quarters >= 44)
+                    {
+                        cd.RemoveCoin(Coins.Quarter, 4);
+                        cd.AddBill(Bills.One, 1);
+                    }
+                    while (cd.HalfDollars >= 2)
+                    {
+                        cd.RemoveCoin(Coins.HalfDollar, 2);
+                        cd.AddBill(Bills.One, 1);
+                    }
+                    while (cd.Dollars >= 5)
+                    {
+                        cd.RemoveCoin(Coins.Dollar, 5);
+                        cd.AddBill(Bills.Five, 1);
+                    }
+                    while (cd.Ones >= 80)
+                    {
+                        cd.RemoveBill(Bills.One, 5);
+                        cd.AddBill(Bills.Five, 1);
+                    }
+                    while (cd.Twos >= 5)
+                    {
+                        cd.RemoveBill(Bills.Two, 5);
+                        cd.AddBill(Bills.Ten, 1);
+                    }
+                    while (cd.Fives >= 8)
+                    {
+                        cd.RemoveBill(Bills.Five, 2);
+                        cd.AddBill(Bills.Ten, 1);
+                    }
+                    while (cd.Tens >= 4)
+                    {
+                        cd.RemoveBill(Bills.Ten, 2);
+                        cd.AddBill(Bills.Twenty, 1);
+                    }
+                    while (cd.Twenties >= 5)
+                    {
+                        cd.RemoveBill(Bills.Twenty, 5);
+                        cd.AddBill(Bills.Hundred, 1);
+                    }
+                    while (cd.Fifties >= 2)
+                    {
+                        cd.RemoveBill(Bills.Fifty, 2);
+                        cd.AddBill(Bills.Hundred, 1);
                     }
                     Receipt(0);
                     break;
@@ -478,10 +653,100 @@ namespace PointOfSale
             string s = sb.ToString();
             MessageBox.Show(s);
             r.Print(s);
-            sb = new StringBuilder();
             s = "Contents of the Cash Drawer\n\n____________________________\n            Coins\n____________________________\n\nPennies: " + cd.Pennies + "\nNickels: " + cd.Nickels + "\nDimes: " + cd.Dimes + "\nQuarters: " + cd.Quarters + "\nHalf Dollars: " + cd.HalfDollars + "\nDollars: " + cd.Dollars + "\n\n____________________________\n             Bills\n____________________________\n\nOnes: " + cd.Ones + "\nTwos: " + cd.Twos + "\nFives: " + cd.Fives + "\nTens: " + cd.Tens + "\nTwenties: " + cd.Twenties + "\nFifties: " + cd.Fifties + "\nHundreds: " + cd.Hundreds + "\n\n____________________________\nCash Drawer Total: " + cd.TotalValue.ToString("C2") + "\n____________________________\n";
             MessageBox.Show(s);
             NewOrder();
+        }
+
+        private void BreakBills(Bills b)
+        {
+            int bi = 0;
+            Bills ba = b + 1;
+            switch (ba)
+            {
+                case Bills.Two:
+                    bi = cd.Twos;
+                    if (bi == 0)
+                    {
+                        ba++;
+                        goto case Bills.Five;
+                    }
+                    break;
+                case Bills.Five:
+                    bi = cd.Fives;
+                    if (bi == 0)
+                    {
+                        ba++;
+                        goto case Bills.Ten;
+                    }
+                    break;
+                case Bills.Ten:
+                    bi = cd.Tens;
+                    if (bi == 0)
+                    {
+                        ba++;
+                        goto case Bills.Twenty;
+                    }
+                    break;
+                case Bills.Twenty:
+                    bi = cd.Twenties;
+                    if (bi == 0)
+                    {
+                        ba++;
+                        goto case Bills.Fifty;
+                    }
+                    break;
+                case Bills.Fifty:
+                    bi = cd.Fifties;
+                    if (bi == 0)
+                    {
+                        ba++;
+                        goto case Bills.Hundred;
+                    }
+                    break;
+                case Bills.Hundred:
+                    bi = cd.Hundreds;
+                    if (bi == 0) goto default;
+                    break;
+                default:
+                    new NotImplementedException();
+                    break;
+            }
+            switch (ba)
+            {
+                case Bills.Two:
+                    cd.RemoveBill(Bills.Two, 1);
+                    cd.AddBill(Bills.One, 2);
+                    break;
+                case Bills.Five:
+                    cd.RemoveBill(Bills.Five, 1);
+                    cd.AddBill(Bills.One, 5);
+                    break;
+                case Bills.Ten:
+                    cd.RemoveBill(Bills.Ten, 1);
+                    cd.AddBill(Bills.Five, 2);
+                    if (b == Bills.Five) break;
+                    else goto case Bills.Five;
+                case Bills.Twenty:
+                    cd.RemoveBill(Bills.Twenty, 1);
+                    cd.AddBill(Bills.Ten, 2);
+                    if (b == Bills.Ten) break;
+                    else goto case Bills.Ten;
+                case Bills.Fifty:
+                    cd.RemoveBill(Bills.Fifty, 1);
+                    cd.AddBill(Bills.Twenty, 2);
+                    cd.AddBill(Bills.Ten, 1);
+                    if (b == Bills.Twenty) break;
+                    else goto case Bills.Twenty;
+                case Bills.Hundred:
+                    cd.RemoveBill(Bills.Hundred, 1);
+                    cd.AddBill(Bills.Fifty, 2);
+                    if (b == Bills.Fifty) break;
+                    else goto case Bills.Fifty;
+                default:
+                    new NotImplementedException();
+                    break;
+            }
         }
     }
 }

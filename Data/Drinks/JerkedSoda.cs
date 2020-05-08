@@ -14,7 +14,15 @@ namespace CowboyCafe.Data
     /// </summary>
     public class JerkedSoda : Drink
     {
-        
+        /// <summary>
+        /// Default jerked soda
+        /// </summary>
+        public JerkedSoda() { }
+        /// <summary>
+        /// Not default jerked soda
+        /// </summary>
+        /// <param name="size">What size it is</param>
+        public JerkedSoda(Size size) { Size = size; }
         private bool ice = true;
         /// <summary>
         /// If the soda has ice

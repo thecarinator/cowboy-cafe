@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -14,6 +15,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public class BakedBeans: Side
     {
+        public BakedBeans() { }
+
+        public BakedBeans(Size size) { Size = size; }
         /// <summary>
         /// Price of the baked beans
         /// </summary>
@@ -34,7 +38,7 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        
         /// <summary>
         /// Calories of the baked beans
         /// </summary>

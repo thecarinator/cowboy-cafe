@@ -15,6 +15,20 @@ namespace CowboyCafe.Data
     {
         private bool sweet = true;
         /// <summary>
+        /// Default Texas tea
+        /// </summary>
+        public TexasTea() { }
+        /// <summary>
+        /// Not default texas tea
+        /// </summary>
+        /// <param name="size">What size it is</param>
+        /// <param name="s">Whether or not it is sweet</param>
+        public TexasTea(Size size, bool s)
+        {
+            Size = size;
+            sweet = s;
+        }
+        /// <summary>
         /// If the tea is sweet
         /// </summary>
         public bool Sweet

@@ -15,6 +15,9 @@ namespace CowboyCafe.Data
     public class Order: INotifyPropertyChanged
     {
         private static uint lastOrderNumber = 1;
+        /// <summary>
+        /// Updates order number
+        /// </summary>
         public Order()
         {
             ordernum = lastOrderNumber++;
@@ -78,7 +81,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Adds item to order
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">item being added</param>
         public void Add(IOrderItem item)
         {
             if (item is INotifyPropertyChanged notifier)
@@ -96,7 +99,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Removes item from order
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">item being removed</param>
         public void Remove(IOrderItem item)
         {
             if (item is INotifyPropertyChanged notifier)

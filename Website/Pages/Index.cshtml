@@ -3,20 +3,134 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    int ec = 0;
+    int sc = 0;
+    int dc = 0;
+
 }
 @using CowboyCafe.Data;
 <div class="text-center">
     <h1 class="display-4">Cowboy Cafe</h1>
-    <p>We at Cowboy Cafe are proud to bring you authentic trail meals from the American West. Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas. Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.</p>
-    <h2>Entrees</h2>
-    @foreach (IOrderItem e in Menu.Entrees())
-    {
-        @if (e is AngryChicken a)
-        {
-                <h3 class="entree-item">@a.ToString()</h3>
-                    <div></div>
-        }
-    }
-    <h2>Sides</h2>
-    <h2>Drinks</h2>
+    <p> We at Cowboy Cafe are proud to bring you authentic trail meals from the American West. Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas. Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.</p>
 </div>
+
+<form id="menu" action="" method="get">
+    <div id="search">
+        <h2>Search for:</h2>
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search" />
+    </div>
+    <div id="filters">
+        <h3>Categories</h3>
+        @foreach(string cat in Menu.Category)
+        {
+            <label>
+                <input type="checkbox" name="Categories" value="@cat" checked="@Model.Categories.Contains(cat)" />
+                @cat
+            </label>
+        }
+        <h3>Calories</h3>
+        <div>
+            Between
+            <input name="CalMin" type="number" min="0" max="1000" step="1" placeholder="0" value="@Model.CalMin" />
+            and
+            <input name="CalMax" type="number" min="0" max="1000" step="1" placeholder="1000" value="@Model.CalMax" />
+        </div>
+        <h3>Price</h3>
+        <div>
+            Between
+            <input name="PriceMin" type="number" min="0.0" max="10.00" step="0.01" placeholder="0.00" value="@Model.PriceMin" />
+            and
+            <input name="PriceMax" type="number" min="0.0" max="10.00" step="0.01" placeholder="10.00" value="@Model.PriceMax" />
+        </div>
+
+    </div>
+    <div id="results" class="flex-columns">
+        <div>
+            <h2>Entrees</h2>
+            <ul class="entree-items">
+                @{
+                    ec = 0;
+                    foreach (IOrderItem i in Model.MenuItems)
+                    {
+                        if (i is Entree)
+                        {
+                            ec++;
+                            <li>
+                                <div class="menu-item">
+                                    <h3>@i.ItemName</h3>
+                                    <div>@i.Calories Calories</div>
+                                    <div>$@i.Price</div>
+                                </div>
+                            </li>
+                        }
+
+                    }
+                    if (ec == 0)
+                    {
+                        <li>No entrees match.</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div>
+            <h2>Sides</h2>
+            <ul class="side-items">
+                @{
+                    sc = 0;
+                    foreach (IOrderItem i in Model.MenuItems)
+                    {
+                        if (i is Side)
+                        {
+                            sc++;
+                            <li>
+                                <div class="menu-item">
+                                    <h3>@i.ItemName</h3>
+                                    <div>@i.Calories Calories</div>
+                                    <div>$@i.Price</div>
+                                </div>
+                            </li>
+                        }
+
+                    }
+                    if (sc == 0)
+                    {
+                        <li>No sides match.</li>
+                    }
+                }
+
+            </ul>
+        </div>
+        <div>
+            <h2>Drinks</h2>
+            <ul class="drink-items">
+                @{
+                    dc = 0;
+                    foreach (IOrderItem i in Model.MenuItems)
+                    {
+                        if (i is Drink)
+                        {
+                            dc++;
+                            <li>
+                                <div class="menu-item">
+                                    <h3>@i.ItemName</h3>
+                                    <div>@i.Calories Calories</div>
+                                    <div>$@i.Price</div>
+                                    @if (i is JerkedSoda)
+                                    {
+                                        <div>Other Flavors: Orange Soda | Sarsparilla | Birch Beer | Root Beer</div>
+                                    }
+                                </div>
+                            </li>
+                        }
+
+                    }
+                    if (dc == 0)
+                    {
+                        <li>No drinks match.</li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</form>

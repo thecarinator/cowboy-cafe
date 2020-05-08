@@ -27,11 +27,25 @@ namespace CowboyCafe.DataTests
             Assert.PropertyChanged(ord, "Items", () => { ord.Add((IOrderItem)chicken); });
         }
         [Fact]
+        public void AddingToOrderShouldInvokePropertyChangedForTax()
+        {
+            var ord = new Order();
+            var chicken = new AngryChicken();
+            Assert.PropertyChanged(ord, "Tax", () => { ord.Add((IOrderItem)chicken); });
+        }
+        [Fact]
+        public void AddingToOrderShouldInvokePropertyChangedForTotal()
+        {
+            var ord = new Order();
+            var chicken = new AngryChicken();
+            Assert.PropertyChanged(ord, "Total", () => { ord.Add((IOrderItem)chicken); });
+        }
+        [Fact]
         public void AddingToOrderShouldInvokePropertyChangedForSubTotal()
         {
             var ord = new Order();
             var chicken = new AngryChicken();
-            Assert.PropertyChanged(ord, "SubTotal", () => { ord.Add((IOrderItem)chicken); });
+            Assert.PropertyChanged(ord, "Subtotal", () => { ord.Add((IOrderItem)chicken); });
         }
 
         [Fact]
@@ -48,7 +62,23 @@ namespace CowboyCafe.DataTests
             var ord = new Order();
             var chicken = new AngryChicken();
             ord.Add((IOrderItem)chicken);
-            Assert.PropertyChanged(ord, "SubTotal", () => { ord.Remove((IOrderItem)chicken); });
+            Assert.PropertyChanged(ord, "Subtotal", () => { ord.Remove((IOrderItem)chicken); });
+        }
+        [Fact]
+        public void RemovingFromOrderShouldInvokePropertyChangedForTax()
+        {
+            var ord = new Order();
+            var chicken = new AngryChicken();
+            ord.Add((IOrderItem)chicken);
+            Assert.PropertyChanged(ord, "Tax", () => { ord.Remove((IOrderItem)chicken); });
+        }
+        [Fact]
+        public void RemovingFromOrderShouldInvokePropertyChangedForTotal()
+        {
+            var ord = new Order();
+            var chicken = new AngryChicken();
+            ord.Add((IOrderItem)chicken);
+            Assert.PropertyChanged(ord, "Total", () => { ord.Remove((IOrderItem)chicken); });
         }
     }
 }

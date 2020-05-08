@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -14,8 +15,17 @@ namespace CowboyCafe.Data
     /// </summary>
     public class Water : Drink
     {
-        private bool lemon = false;
         /// <summary>
+        /// Default Water
+        /// </summary>
+        public Water() { }
+        /// <summary>
+        /// Not default water
+        /// </summary>
+        /// <param name="size">Specific size</param>
+        public Water(Size size) { Size = size; }
+        private bool lemon = false;
+        /// <summary
         /// If the water has lemon
         /// </summary>
         public bool Lemon

@@ -15,6 +15,16 @@ namespace CowboyCafe.Data
     public class ChiliCheeseFries : Side
     {
         /// <summary>
+        /// Default cheese fries
+        /// </summary>
+        public ChiliCheeseFries() { }
+
+        /// <summary>
+        /// Not default chili chese fries
+        /// </summary>
+        /// <param name="size"></param>
+        public ChiliCheeseFries(Size size) { Size = size; }
+        /// <summary>
         /// Price of the chili cheese fries
         /// </summary>
         public override double Price
