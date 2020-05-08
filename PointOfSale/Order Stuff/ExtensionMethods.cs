@@ -12,6 +12,12 @@ namespace PointOfSale
 {
     public static class ExtensionMethods
     {
+        /// <summary>
+        /// Finds the ancestor
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dp"></param>
+        /// <returns></returns>
         public static T FindAncestor<T>(this DependencyObject dp) where T: DependencyObject
         {
             var parent = VisualTreeHelper.GetParent(dp);

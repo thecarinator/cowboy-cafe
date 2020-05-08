@@ -32,7 +32,7 @@ namespace Website.Pages
         public string[] Categories { get; set; } = new string[0];
         
         /// <summary>
-        /// Minimum amount the calories can be
+        /// Minimum amount the calories  can be
         /// </summary>
         [BindProperty]
         public int? CalMin { get; set; }
