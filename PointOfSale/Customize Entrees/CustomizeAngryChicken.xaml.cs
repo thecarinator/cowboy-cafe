@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeAngryChicken : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeAngryChicken()
         {
             InitializeComponent();

@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeDakotaDoubleBurger : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeDakotaDoubleBurger()
         {
             InitializeComponent();

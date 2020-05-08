@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeTrailBurger : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeTrailBurger()
         {
             InitializeComponent();

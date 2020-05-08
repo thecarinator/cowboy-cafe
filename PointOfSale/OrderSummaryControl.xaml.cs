@@ -23,12 +23,21 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderSummaryControl : UserControl
     {
+
+        /// <summary>
+        /// Sets up order summary control
+        /// </summary>
         public OrderSummaryControl()
         {
             InitializeComponent();
         }
 
-        private void ItemSelected(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// Item seleceted event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemSelected(object sender, SelectionChangedEventArgs e) 
         {
             IOrderItem p = ((sender as ListBox).SelectedItem as IOrderItem);
             var order = this.FindAncestor<OrderControl>();
@@ -170,6 +179,11 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// Button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtClicked(object sender, RoutedEventArgs e)
         {
             if (sender is Button butt)

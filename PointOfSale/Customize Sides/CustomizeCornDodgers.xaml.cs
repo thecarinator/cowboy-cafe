@@ -24,6 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCornDodgers : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeCornDodgers()
         {
             InitializeComponent();

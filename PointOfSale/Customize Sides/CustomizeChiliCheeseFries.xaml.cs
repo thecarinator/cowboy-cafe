@@ -24,6 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeChiliCheeseFries : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeChiliCheeseFries()
         {
             InitializeComponent();

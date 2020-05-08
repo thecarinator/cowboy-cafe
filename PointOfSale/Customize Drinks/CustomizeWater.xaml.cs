@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
-using Size = CowboyCafe.Data.Size;
+
 
 namespace PointOfSale
 {
@@ -24,6 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeWater : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeWater()
         {
             InitializeComponent();

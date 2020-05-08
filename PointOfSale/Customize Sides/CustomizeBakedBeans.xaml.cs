@@ -24,7 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeBakedBeans : UserControl
     {
-
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeBakedBeans()
         {
             InitializeComponent();

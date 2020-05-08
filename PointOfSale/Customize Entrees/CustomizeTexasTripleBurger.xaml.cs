@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeTexasTripleBurger : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeTexasTripleBurger()
         {
             InitializeComponent();

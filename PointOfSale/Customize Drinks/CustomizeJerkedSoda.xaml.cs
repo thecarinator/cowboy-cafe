@@ -23,6 +23,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeJerkedSoda : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeJerkedSoda()
         {
             InitializeComponent();

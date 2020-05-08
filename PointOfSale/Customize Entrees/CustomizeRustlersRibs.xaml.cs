@@ -18,6 +18,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeRustlersRibs : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizeRustlersRibs()
         {
             InitializeComponent();

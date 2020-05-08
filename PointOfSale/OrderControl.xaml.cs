@@ -26,6 +26,10 @@ namespace PointOfSale
     public partial class OrderControl : UserControl
     {
          CashDrawer cd = new CashDrawer();
+
+        /// <summary>
+        /// Sets up order control+
+        /// </summary>
         public OrderControl()
         { 
             InitializeComponent();

@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizePecosPulledPork : UserControl
     {
+        /// <summary>
+        /// Sets up screen
+        /// </summary>
         public CustomizePecosPulledPork()
         {
             InitializeComponent();
